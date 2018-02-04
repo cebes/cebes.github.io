@@ -1,0 +1,4193 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Cebes - the integrated framework for Data Science">
+      
+      
+        <link rel="canonical" href="http://cebes.io/dataframe_functions/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../imgs/cebes.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.0">
+    
+    
+      
+        <title>Functional API Reference - Cebes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.aa3de92b.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#pycebescorefunctions" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://cebes.io/" title="Cebes" class="md-header-nav__button md-logo">
+          
+            <img src="../imgs/cebes_inverse.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Cebes
+              </span>
+              <span class="md-header-nav__topic">
+                Functional API Reference
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../imgs/cebes_inverse.png" width="24" height="24">
+      
+    </span>
+    Cebes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Cebes Session
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Cebes Session
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_load_data/" title="Load data into Cebes" class="md-nav__link">
+      Load data into Cebes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_df/" title="Manage Dataframes, models and pipelines" class="md-nav__link">
+      Manage Dataframes, models and pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_api/" title="Session API Reference" class="md-nav__link">
+      Session API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Cebes Dataframe
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Cebes Dataframe
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_guide/" title="User guide" class="md-nav__link">
+      User guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_reference/" title="Dataframe API Reference" class="md-nav__link">
+      Dataframe API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Functional API Reference
+      </label>
+    
+    <a href="./" title="Functional API Reference" class="md-nav__link md-nav__link--active">
+      Functional API Reference
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json_tuple" title="json_tuple" class="md-nav__link">
+    json_tuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tanh" title="tanh" class="md-nav__link">
+    tanh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekofyear" title="weekofyear" class="md-nav__link">
+    weekofyear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nanvl" title="nanvl" class="md-nav__link">
+    nanvl
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unix_timestamp" title="unix_timestamp" class="md-nav__link">
+    unix_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base64" title="base64" class="md-nav__link">
+    base64
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repeat" title="repeat" class="md-nav__link">
+    repeat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expm1" title="expm1" class="md-nav__link">
+    expm1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format_string" title="format_string" class="md-nav__link">
+    format_string
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explode" title="explode" class="md-nav__link">
+    explode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#md5" title="md5" class="md-nav__link">
+    md5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posexplode" title="posexplode" class="md-nav__link">
+    posexplode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_json_object" title="get_json_object" class="md-nav__link">
+    get_json_object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#var_samp" title="var_samp" class="md-nav__link">
+    var_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date_add" title="date_add" class="md-nav__link">
+    date_add
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log" title="log" class="md-nav__link">
+    log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cbrt" title="cbrt" class="md-nav__link">
+    cbrt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substring_index" title="substring_index" class="md-nav__link">
+    substring_index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ltrim" title="ltrim" class="md-nav__link">
+    ltrim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regexp_extract" title="regexp_extract" class="md-nav__link">
+    regexp_extract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#struct" title="struct" class="md-nav__link">
+    struct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bin" title="bin" class="md-nav__link">
+    bin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ascii" title="ascii" class="md-nav__link">
+    ascii
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sum" title="sum" class="md-nav__link">
+    sum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first" title="first" class="md-nav__link">
+    first
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crc32" title="crc32" class="md-nav__link">
+    crc32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hour" title="hour" class="md-nav__link">
+    hour
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count" title="count" class="md-nav__link">
+    count
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upper" title="upper" class="md-nav__link">
+    upper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#covar_pop" title="covar_pop" class="md-nav__link">
+    covar_pop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unhex" title="unhex" class="md-nav__link">
+    unhex
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is_null" title="is_null" class="md-nav__link">
+    is_null
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#max" title="max" class="md-nav__link">
+    max
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sha1" title="sha1" class="md-nav__link">
+    sha1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort_array" title="sort_array" class="md-nav__link">
+    sort_array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last_day" title="last_day" class="md-nav__link">
+    last_day
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reverse" title="reverse" class="md-nav__link">
+    reverse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instr" title="instr" class="md-nav__link">
+    instr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtrim" title="rtrim" class="md-nav__link">
+    rtrim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signum" title="signum" class="md-nav__link">
+    signum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round" title="round" class="md-nav__link">
+    round
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#negate" title="negate" class="md-nav__link">
+    negate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concat" title="concat" class="md-nav__link">
+    concat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array_contains" title="array_contains" class="md-nav__link">
+    array_contains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift_right_unsigned" title="shift_right_unsigned" class="md-nav__link">
+    shift_right_unsigned
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current_date" title="current_date" class="md-nav__link">
+    current_date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collect_list" title="collect_list" class="md-nav__link">
+    collect_list
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trim" title="trim" class="md-nav__link">
+    trim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log10" title="log10" class="md-nav__link">
+    log10
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initcap" title="initcap" class="md-nav__link">
+    initcap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_utc_timestamp" title="to_utc_timestamp" class="md-nav__link">
+    to_utc_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count_distinct" title="count_distinct" class="md-nav__link">
+    count_distinct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_map" title="create_map" class="md-nav__link">
+    create_map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substring" title="substring" class="md-nav__link">
+    substring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min" title="min" class="md-nav__link">
+    min
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpad" title="rpad" class="md-nav__link">
+    rpad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from_unixtime" title="from_unixtime" class="md-nav__link">
+    from_unixtime
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locate" title="locate" class="md-nav__link">
+    locate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when" title="when" class="md-nav__link">
+    when
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log1p" title="log1p" class="md-nav__link">
+    log1p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift_right" title="shift_right" class="md-nav__link">
+    shift_right
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input_file_name" title="input_file_name" class="md-nav__link">
+    input_file_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expr" title="expr" class="md-nav__link">
+    expr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#covar_samp" title="covar_samp" class="md-nav__link">
+    covar_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dayofyear" title="dayofyear" class="md-nav__link">
+    dayofyear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date_format" title="date_format" class="md-nav__link">
+    date_format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift_left" title="shift_left" class="md-nav__link">
+    shift_left
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monotonically_increasing_id" title="monotonically_increasing_id" class="md-nav__link">
+    monotonically_increasing_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unbase64" title="unbase64" class="md-nav__link">
+    unbase64
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trunc" title="trunc" class="md-nav__link">
+    trunc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spark_partition_id" title="spark_partition_id" class="md-nav__link">
+    spark_partition_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split" title="split" class="md-nav__link">
+    split
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping_id" title="grouping_id" class="md-nav__link">
+    grouping_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#size" title="size" class="md-nav__link">
+    size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rint" title="rint" class="md-nav__link">
+    rint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cos" title="cos" class="md-nav__link">
+    cos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current_timestamp" title="current_timestamp" class="md-nav__link">
+    current_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approx_count_distinct" title="approx_count_distinct" class="md-nav__link">
+    approx_count_distinct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stddev_samp" title="stddev_samp" class="md-nav__link">
+    stddev_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sha2" title="sha2" class="md-nav__link">
+    sha2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bround" title="bround" class="md-nav__link">
+    bround
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypot" title="hypot" class="md-nav__link">
+    hypot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greatest" title="greatest" class="md-nav__link">
+    greatest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pmod" title="pmod" class="md-nav__link">
+    pmod
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conv" title="conv" class="md-nav__link">
+    conv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" title="hash" class="md-nav__link">
+    hash
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#length" title="length" class="md-nav__link">
+    length
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skewness" title="skewness" class="md-nav__link">
+    skewness
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decode" title="decode" class="md-nav__link">
+    decode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array" title="array" class="md-nav__link">
+    array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floor" title="floor" class="md-nav__link">
+    floor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datediff" title="datediff" class="md-nav__link">
+    datediff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acos" title="acos" class="md-nav__link">
+    acos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avg" title="avg" class="md-nav__link">
+    avg
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from_utc_timestamp" title="from_utc_timestamp" class="md-nav__link">
+    from_utc_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial" title="factorial" class="md-nav__link">
+    factorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dayofmonth" title="dayofmonth" class="md-nav__link">
+    dayofmonth
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avg_1" title="avg" class="md-nav__link">
+    avg
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randn" title="randn" class="md-nav__link">
+    randn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soundex" title="soundex" class="md-nav__link">
+    soundex
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_date" title="to_date" class="md-nav__link">
+    to_date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitwise_not" title="bitwise_not" class="md-nav__link">
+    bitwise_not
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stddev_pop" title="stddev_pop" class="md-nav__link">
+    stddev_pop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concat_ws" title="concat_ws" class="md-nav__link">
+    concat_ws
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abs" title="abs" class="md-nav__link">
+    abs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_radians" title="to_radians" class="md-nav__link">
+    to_radians
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pow" title="pow" class="md-nav__link">
+    pow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqrt" title="sqrt" class="md-nav__link">
+    sqrt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regexp_replace" title="regexp_replace" class="md-nav__link">
+    regexp_replace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date_sub" title="date_sub" class="md-nav__link">
+    date_sub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lower" title="lower" class="md-nav__link">
+    lower
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#levenshtein" title="levenshtein" class="md-nav__link">
+    levenshtein
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#var_samp_1" title="var_samp" class="md-nav__link">
+    var_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hex" title="hex" class="md-nav__link">
+    hex
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinh" title="sinh" class="md-nav__link">
+    sinh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_degrees" title="to_degrees" class="md-nav__link">
+    to_degrees
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping" title="grouping" class="md-nav__link">
+    grouping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stddev_samp_1" title="stddev_samp" class="md-nav__link">
+    stddev_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#translate" title="translate" class="md-nav__link">
+    translate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format_number" title="format_number" class="md-nav__link">
+    format_number
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lpad" title="lpad" class="md-nav__link">
+    lpad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sin" title="sin" class="md-nav__link">
+    sin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coalesce" title="coalesce" class="md-nav__link">
+    coalesce
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least" title="least" class="md-nav__link">
+    least
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asin" title="asin" class="md-nav__link">
+    asin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minute" title="minute" class="md-nav__link">
+    minute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quarter" title="quarter" class="md-nav__link">
+    quarter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tan" title="tan" class="md-nav__link">
+    tan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last" title="last" class="md-nav__link">
+    last
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#window" title="window" class="md-nav__link">
+    window
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is_nan" title="is_nan" class="md-nav__link">
+    is_nan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#month" title="month" class="md-nav__link">
+    month
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encode" title="encode" class="md-nav__link">
+    encode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collect_set" title="collect_set" class="md-nav__link">
+    collect_set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log2" title="log2" class="md-nav__link">
+    log2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan2" title="atan2" class="md-nav__link">
+    atan2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next_day" title="next_day" class="md-nav__link">
+    next_day
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan" title="atan" class="md-nav__link">
+    atan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#col" title="col" class="md-nav__link">
+    col
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#months_between" title="months_between" class="md-nav__link">
+    months_between
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosh" title="cosh" class="md-nav__link">
+    cosh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add_months" title="add_months" class="md-nav__link">
+    add_months
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceil" title="ceil" class="md-nav__link">
+    ceil
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second" title="second" class="md-nav__link">
+    second
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#var_pop" title="var_pop" class="md-nav__link">
+    var_pop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corr" title="corr" class="md-nav__link">
+    corr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp" title="exp" class="md-nav__link">
+    exp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#year" title="year" class="md-nav__link">
+    year
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rand" title="rand" class="md-nav__link">
+    rand
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurtosis" title="kurtosis" class="md-nav__link">
+    kurtosis
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Cebes Pipelines
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Cebes Pipelines
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_api/" title="Working with Cebes Pipelines" class="md-nav__link">
+      Working with Cebes Pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Pipeline repository
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Pipeline repository
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_repo/" title="Working with repositories in pycebes" class="md-nav__link">
+      Working with repositories in pycebes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_deploy/" title="Install pipeline repository" class="md-nav__link">
+      Install pipeline repository
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../serving/" title="Serving pipelines" class="md-nav__link">
+      Serving pipelines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json_tuple" title="json_tuple" class="md-nav__link">
+    json_tuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tanh" title="tanh" class="md-nav__link">
+    tanh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekofyear" title="weekofyear" class="md-nav__link">
+    weekofyear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nanvl" title="nanvl" class="md-nav__link">
+    nanvl
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unix_timestamp" title="unix_timestamp" class="md-nav__link">
+    unix_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base64" title="base64" class="md-nav__link">
+    base64
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repeat" title="repeat" class="md-nav__link">
+    repeat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expm1" title="expm1" class="md-nav__link">
+    expm1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format_string" title="format_string" class="md-nav__link">
+    format_string
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explode" title="explode" class="md-nav__link">
+    explode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#md5" title="md5" class="md-nav__link">
+    md5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posexplode" title="posexplode" class="md-nav__link">
+    posexplode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_json_object" title="get_json_object" class="md-nav__link">
+    get_json_object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#var_samp" title="var_samp" class="md-nav__link">
+    var_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date_add" title="date_add" class="md-nav__link">
+    date_add
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log" title="log" class="md-nav__link">
+    log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cbrt" title="cbrt" class="md-nav__link">
+    cbrt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substring_index" title="substring_index" class="md-nav__link">
+    substring_index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ltrim" title="ltrim" class="md-nav__link">
+    ltrim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regexp_extract" title="regexp_extract" class="md-nav__link">
+    regexp_extract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#struct" title="struct" class="md-nav__link">
+    struct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bin" title="bin" class="md-nav__link">
+    bin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ascii" title="ascii" class="md-nav__link">
+    ascii
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sum" title="sum" class="md-nav__link">
+    sum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first" title="first" class="md-nav__link">
+    first
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crc32" title="crc32" class="md-nav__link">
+    crc32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hour" title="hour" class="md-nav__link">
+    hour
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count" title="count" class="md-nav__link">
+    count
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upper" title="upper" class="md-nav__link">
+    upper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#covar_pop" title="covar_pop" class="md-nav__link">
+    covar_pop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unhex" title="unhex" class="md-nav__link">
+    unhex
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is_null" title="is_null" class="md-nav__link">
+    is_null
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#max" title="max" class="md-nav__link">
+    max
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sha1" title="sha1" class="md-nav__link">
+    sha1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort_array" title="sort_array" class="md-nav__link">
+    sort_array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last_day" title="last_day" class="md-nav__link">
+    last_day
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reverse" title="reverse" class="md-nav__link">
+    reverse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instr" title="instr" class="md-nav__link">
+    instr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtrim" title="rtrim" class="md-nav__link">
+    rtrim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signum" title="signum" class="md-nav__link">
+    signum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#round" title="round" class="md-nav__link">
+    round
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#negate" title="negate" class="md-nav__link">
+    negate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concat" title="concat" class="md-nav__link">
+    concat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array_contains" title="array_contains" class="md-nav__link">
+    array_contains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift_right_unsigned" title="shift_right_unsigned" class="md-nav__link">
+    shift_right_unsigned
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current_date" title="current_date" class="md-nav__link">
+    current_date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collect_list" title="collect_list" class="md-nav__link">
+    collect_list
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trim" title="trim" class="md-nav__link">
+    trim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log10" title="log10" class="md-nav__link">
+    log10
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initcap" title="initcap" class="md-nav__link">
+    initcap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_utc_timestamp" title="to_utc_timestamp" class="md-nav__link">
+    to_utc_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count_distinct" title="count_distinct" class="md-nav__link">
+    count_distinct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_map" title="create_map" class="md-nav__link">
+    create_map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substring" title="substring" class="md-nav__link">
+    substring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min" title="min" class="md-nav__link">
+    min
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpad" title="rpad" class="md-nav__link">
+    rpad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from_unixtime" title="from_unixtime" class="md-nav__link">
+    from_unixtime
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locate" title="locate" class="md-nav__link">
+    locate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when" title="when" class="md-nav__link">
+    when
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log1p" title="log1p" class="md-nav__link">
+    log1p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift_right" title="shift_right" class="md-nav__link">
+    shift_right
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input_file_name" title="input_file_name" class="md-nav__link">
+    input_file_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expr" title="expr" class="md-nav__link">
+    expr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#covar_samp" title="covar_samp" class="md-nav__link">
+    covar_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dayofyear" title="dayofyear" class="md-nav__link">
+    dayofyear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date_format" title="date_format" class="md-nav__link">
+    date_format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift_left" title="shift_left" class="md-nav__link">
+    shift_left
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monotonically_increasing_id" title="monotonically_increasing_id" class="md-nav__link">
+    monotonically_increasing_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unbase64" title="unbase64" class="md-nav__link">
+    unbase64
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trunc" title="trunc" class="md-nav__link">
+    trunc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spark_partition_id" title="spark_partition_id" class="md-nav__link">
+    spark_partition_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split" title="split" class="md-nav__link">
+    split
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping_id" title="grouping_id" class="md-nav__link">
+    grouping_id
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#size" title="size" class="md-nav__link">
+    size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rint" title="rint" class="md-nav__link">
+    rint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cos" title="cos" class="md-nav__link">
+    cos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current_timestamp" title="current_timestamp" class="md-nav__link">
+    current_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approx_count_distinct" title="approx_count_distinct" class="md-nav__link">
+    approx_count_distinct
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stddev_samp" title="stddev_samp" class="md-nav__link">
+    stddev_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sha2" title="sha2" class="md-nav__link">
+    sha2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bround" title="bround" class="md-nav__link">
+    bround
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypot" title="hypot" class="md-nav__link">
+    hypot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greatest" title="greatest" class="md-nav__link">
+    greatest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pmod" title="pmod" class="md-nav__link">
+    pmod
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conv" title="conv" class="md-nav__link">
+    conv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" title="hash" class="md-nav__link">
+    hash
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#length" title="length" class="md-nav__link">
+    length
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skewness" title="skewness" class="md-nav__link">
+    skewness
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decode" title="decode" class="md-nav__link">
+    decode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array" title="array" class="md-nav__link">
+    array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floor" title="floor" class="md-nav__link">
+    floor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datediff" title="datediff" class="md-nav__link">
+    datediff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acos" title="acos" class="md-nav__link">
+    acos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avg" title="avg" class="md-nav__link">
+    avg
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from_utc_timestamp" title="from_utc_timestamp" class="md-nav__link">
+    from_utc_timestamp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial" title="factorial" class="md-nav__link">
+    factorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dayofmonth" title="dayofmonth" class="md-nav__link">
+    dayofmonth
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avg_1" title="avg" class="md-nav__link">
+    avg
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#randn" title="randn" class="md-nav__link">
+    randn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soundex" title="soundex" class="md-nav__link">
+    soundex
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_date" title="to_date" class="md-nav__link">
+    to_date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitwise_not" title="bitwise_not" class="md-nav__link">
+    bitwise_not
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stddev_pop" title="stddev_pop" class="md-nav__link">
+    stddev_pop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concat_ws" title="concat_ws" class="md-nav__link">
+    concat_ws
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abs" title="abs" class="md-nav__link">
+    abs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_radians" title="to_radians" class="md-nav__link">
+    to_radians
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pow" title="pow" class="md-nav__link">
+    pow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqrt" title="sqrt" class="md-nav__link">
+    sqrt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regexp_replace" title="regexp_replace" class="md-nav__link">
+    regexp_replace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date_sub" title="date_sub" class="md-nav__link">
+    date_sub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lower" title="lower" class="md-nav__link">
+    lower
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#levenshtein" title="levenshtein" class="md-nav__link">
+    levenshtein
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#var_samp_1" title="var_samp" class="md-nav__link">
+    var_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hex" title="hex" class="md-nav__link">
+    hex
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinh" title="sinh" class="md-nav__link">
+    sinh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_degrees" title="to_degrees" class="md-nav__link">
+    to_degrees
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping" title="grouping" class="md-nav__link">
+    grouping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stddev_samp_1" title="stddev_samp" class="md-nav__link">
+    stddev_samp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#translate" title="translate" class="md-nav__link">
+    translate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format_number" title="format_number" class="md-nav__link">
+    format_number
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lpad" title="lpad" class="md-nav__link">
+    lpad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sin" title="sin" class="md-nav__link">
+    sin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coalesce" title="coalesce" class="md-nav__link">
+    coalesce
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least" title="least" class="md-nav__link">
+    least
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asin" title="asin" class="md-nav__link">
+    asin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minute" title="minute" class="md-nav__link">
+    minute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quarter" title="quarter" class="md-nav__link">
+    quarter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tan" title="tan" class="md-nav__link">
+    tan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last" title="last" class="md-nav__link">
+    last
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#window" title="window" class="md-nav__link">
+    window
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is_nan" title="is_nan" class="md-nav__link">
+    is_nan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#month" title="month" class="md-nav__link">
+    month
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encode" title="encode" class="md-nav__link">
+    encode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collect_set" title="collect_set" class="md-nav__link">
+    collect_set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log2" title="log2" class="md-nav__link">
+    log2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan2" title="atan2" class="md-nav__link">
+    atan2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next_day" title="next_day" class="md-nav__link">
+    next_day
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atan" title="atan" class="md-nav__link">
+    atan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#col" title="col" class="md-nav__link">
+    col
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#months_between" title="months_between" class="md-nav__link">
+    months_between
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cosh" title="cosh" class="md-nav__link">
+    cosh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add_months" title="add_months" class="md-nav__link">
+    add_months
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceil" title="ceil" class="md-nav__link">
+    ceil
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second" title="second" class="md-nav__link">
+    second
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#var_pop" title="var_pop" class="md-nav__link">
+    var_pop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corr" title="corr" class="md-nav__link">
+    corr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp" title="exp" class="md-nav__link">
+    exp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#year" title="year" class="md-nav__link">
+    year
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rand" title="rand" class="md-nav__link">
+    rand
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurtosis" title="kurtosis" class="md-nav__link">
+    kurtosis
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="http://github.com/phvu/cebes-server/edit/master/docs/sources/dataframe_functions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="pycebescorefunctions"><h1 id="pycebes.core.functions">pycebes.core.functions</h1><a class="headerlink" href="#pycebescorefunctions" title="Permanent link">&para;</a></h1>
+<h2 id="json_tuple"><h2 id="pycebes.core.functions.json_tuple">json_tuple</h2><a class="headerlink" href="#json_tuple" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">json_tuple</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Creates a new row for a json column according to the given field names</p>
+<h2 id="tanh"><h2 id="pycebes.core.functions.tanh">tanh</h2><a class="headerlink" href="#tanh" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">tanh</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the hyperbolic tangent of the given value</p>
+<h2 id="weekofyear"><h2 id="pycebes.core.functions.weekofyear">weekofyear</h2><a class="headerlink" href="#weekofyear" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">weekofyear</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the week number as an integer from a given date/timestamp/string</p>
+<h2 id="nanvl"><h2 id="pycebes.core.functions.nanvl">nanvl</h2><a class="headerlink" href="#nanvl" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">nanvl</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns col1 if it is not NaN, or col2 if col1 is NaN.
+Both inputs should be floating point columns (DoubleType or FloatType).</p>
+<h2 id="unix_timestamp"><h2 id="pycebes.core.functions.unix_timestamp">unix_timestamp</h2><a class="headerlink" href="#unix_timestamp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">unix_timestamp</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s1">&#39;yyyy-MM-dd HH:mm:ss&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Convert time string in <code>column</code> with given <code>pattern</code>
+(see [http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html])
+to Unix time stamp (in seconds), return null if fail.</p>
+<p>If <code>column=None</code>, the current Unix timestamp (computed by :func:<code>current_timestamp</code>) will be used</p>
+<h2 id="base64"><h2 id="pycebes.core.functions.base64">base64</h2><a class="headerlink" href="#base64" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">base64</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the BASE64 encoding of a binary column and returns it as a string column.
+This is the reverse of unbase64</p>
+<h2 id="repeat"><h2 id="pycebes.core.functions.repeat">repeat</h2><a class="headerlink" href="#repeat" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">repeat</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Repeats a string column n times, and returns it as a new string column</p>
+<h2 id="expm1"><h2 id="pycebes.core.functions.expm1">expm1</h2><a class="headerlink" href="#expm1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">expm1</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the exponential of the given value minus one</p>
+<h2 id="format_string"><h2 id="pycebes.core.functions.format_string">format_string</h2><a class="headerlink" href="#format_string" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">format_string</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Formats the arguments in printf-style and returns the result as a string column</p>
+<h2 id="explode"><h2 id="pycebes.core.functions.explode">explode</h2><a class="headerlink" href="#explode" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">explode</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Creates a new row for each element in the given array or map column</p>
+<h2 id="md5"><h2 id="pycebes.core.functions.md5">md5</h2><a class="headerlink" href="#md5" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">md5</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Calculates the MD5 digest of a binary column and returns the value
+as a 32 character hex string</p>
+<h2 id="posexplode"><h2 id="pycebes.core.functions.posexplode">posexplode</h2><a class="headerlink" href="#posexplode" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">posexplode</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Creates a new row for each element with position in the given array or map column</p>
+<h2 id="get_json_object"><h2 id="pycebes.core.functions.get_json_object">get_json_object</h2><a class="headerlink" href="#get_json_object" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">get_json_object</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts json object from a json string based on json path specified, and returns json string
+of the extracted json object. It will return null if the input json string is invalid.</p>
+<h2 id="var_samp"><h2 id="pycebes.core.functions.var_samp">var_samp</h2><a class="headerlink" href="#var_samp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">var_samp</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the unbiased variance of the values in a group</p>
+<p>See <code>var_pop</code> for computing the population variance.</p>
+<h2 id="date_add"><h2 id="pycebes.core.functions.date_add">date_add</h2><a class="headerlink" href="#date_add" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">date_add</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the date that is <code>days</code> days after the date in <code>column</code></p>
+<h2 id="log"><h2 id="pycebes.core.functions.log">log</h2><a class="headerlink" href="#log" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the natural logarithm of the given value if <code>base</code> is None.
+If <code>base</code> is not None, compute the logarithm with the given base of the column.</p>
+<h2 id="cbrt"><h2 id="pycebes.core.functions.cbrt">cbrt</h2><a class="headerlink" href="#cbrt" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">cbrt</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the cube-root of the given value</p>
+<h2 id="substring_index"><h2 id="pycebes.core.functions.substring_index">substring_index</h2><a class="headerlink" href="#substring_index" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">substring_index</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the substring from string <code>column</code> before <code>cnt</code> occurrences of the delimiter <code>delim</code>.
+If <code>cnt</code> is positive, everything the left of the final delimiter (counting from left) is
+returned. If <code>cnt</code> is negative, every to the right of the final delimiter (counting from the
+right) is returned. substring_index performs a case-sensitive match when searching for <code>delim</code>.</p>
+<h2 id="ltrim"><h2 id="pycebes.core.functions.ltrim">ltrim</h2><a class="headerlink" href="#ltrim" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">ltrim</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Trim the spaces from left end for the specified string value</p>
+<h2 id="regexp_extract"><h2 id="pycebes.core.functions.regexp_extract">regexp_extract</h2><a class="headerlink" href="#regexp_extract" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">regexp_extract</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">regexp</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">group_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extract a specific group matched by a Java regex, from the specified string column.
+If the regex did not match, or the specified group did not match, an empty string is returned.</p>
+<h2 id="struct"><h2 id="pycebes.core.functions.struct">struct</h2><a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">struct</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Creates a new struct column.
+If the input column is a column in a <code>Dataframe</code>, or a derived column expression
+that is named (i.e. aliased), its name would be remained as the StructField's name,
+otherwise, the newly generated StructField's name would be auto generated as col${index + 1},
+i.e. col1, col2, col3, ...</p>
+<h2 id="bin"><h2 id="pycebes.core.functions.bin">bin</h2><a class="headerlink" href="#bin" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>An expression that returns the string representation of the binary value of the given long column.
+For example, bin("12") returns "1100".</p>
+<h2 id="ascii"><h2 id="pycebes.core.functions.ascii">ascii</h2><a class="headerlink" href="#ascii" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">ascii</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the numeric value of the first character of the string column, and returns the
+result as an int column</p>
+<h2 id="sum"><h2 id="pycebes.core.functions.sum">sum</h2><a class="headerlink" href="#sum" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">is_distinct</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the sum of all values in the expression</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>column (Column)</strong>: the column to compute the sum</li>
+<li><strong>is_distinct (bool)</strong>: whether to only compute the sum of distinct values.
+        False by default, meaning computing the sum of all values</li>
+</ul>
+<h2 id="first"><h2 id="pycebes.core.functions.first">first</h2><a class="headerlink" href="#first" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">first</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">ignore_nulls</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the first value in a group.</p>
+<p>The function by default returns the first values it sees. It will return the first non-null
+value it sees when <code>ignore_nulls</code> is set to true. If all values are null, then null is returned.</p>
+<h2 id="crc32"><h2 id="pycebes.core.functions.crc32">crc32</h2><a class="headerlink" href="#crc32" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">crc32</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Calculates the cyclic redundancy check value  (CRC32) of a binary column and
+returns the value as a bigint</p>
+<h2 id="hour"><h2 id="pycebes.core.functions.hour">hour</h2><a class="headerlink" href="#hour" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">hour</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the hours as an integer from a given date/timestamp/string</p>
+<h2 id="count"><h2 id="pycebes.core.functions.count">count</h2><a class="headerlink" href="#count" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">count</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>returns the number of items in a group</p>
+<h2 id="upper"><h2 id="pycebes.core.functions.upper">upper</h2><a class="headerlink" href="#upper" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">upper</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Converts a string column to upper case</p>
+<h2 id="covar_pop"><h2 id="pycebes.core.functions.covar_pop">covar_pop</h2><a class="headerlink" href="#covar_pop" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">covar_pop</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the population covariance for two columns</p>
+<h2 id="unhex"><h2 id="pycebes.core.functions.unhex">unhex</h2><a class="headerlink" href="#unhex" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">unhex</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Inverse of hex. Interprets each pair of characters as a hexadecimal number
+and converts to the byte representation of number.</p>
+<h2 id="is_null"><h2 id="pycebes.core.functions.is_null">is_null</h2><a class="headerlink" href="#is_null" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">is_null</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Return true iff the column is null</p>
+<h2 id="max"><h2 id="pycebes.core.functions.max">max</h2><a class="headerlink" href="#max" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the kurtosis of the values in a group</p>
+<h2 id="sha1"><h2 id="pycebes.core.functions.sha1">sha1</h2><a class="headerlink" href="#sha1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">sha1</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Calculates the SHA-1 digest of a binary column and returns the value
+as a 40 character hex string</p>
+<h2 id="sort_array"><h2 id="pycebes.core.functions.sort_array">sort_array</h2><a class="headerlink" href="#sort_array" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">sort_array</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">asc</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Sorts the input array for the given column in ascending / descending order,
+according to the natural ordering of the array elements.</p>
+<h2 id="last_day"><h2 id="pycebes.core.functions.last_day">last_day</h2><a class="headerlink" href="#last_day" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">last_day</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Given a date column, returns the last day of the month which the given date belongs to.
+For example, input "2015-07-27" returns "2015-07-31" since July 31 is the last day of the
+month in July 2015.</p>
+<h2 id="reverse"><h2 id="pycebes.core.functions.reverse">reverse</h2><a class="headerlink" href="#reverse" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">reverse</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Reverses the string column and returns it as a new string column</p>
+<h2 id="instr"><h2 id="pycebes.core.functions.instr">instr</h2><a class="headerlink" href="#instr" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">instr</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">substr</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Locate the position of the first occurrence of substr column in the given string.
+Returns null if either of the arguments are null.</p>
+<blockquote>
+<p>The position is not zero based, but 1 based index, returns 0 if substr
+   could not be found in <code>column</code></p>
+</blockquote>
+<h2 id="rtrim"><h2 id="pycebes.core.functions.rtrim">rtrim</h2><a class="headerlink" href="#rtrim" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">rtrim</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Trim the spaces from right end for the specified string value</p>
+<h2 id="signum"><h2 id="pycebes.core.functions.signum">signum</h2><a class="headerlink" href="#signum" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">signum</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the signum of the given value</p>
+<h2 id="round"><h2 id="pycebes.core.functions.round">round</h2><a class="headerlink" href="#round" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Round the value of <code>column</code> to <code>scale</code> decimal places if <code>scale &gt;= 0</code>
+or at integral part when <code>scale &lt; 0</code></p>
+<h2 id="negate"><h2 id="pycebes.core.functions.negate">negate</h2><a class="headerlink" href="#negate" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">negate</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Unary minus, i.e. negate the expression.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the amount column and negates all values.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">negate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">negate</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="concat"><h2 id="pycebes.core.functions.concat">concat</h2><a class="headerlink" href="#concat" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">concat</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Concatenates multiple input string columns together into a single string column</p>
+<h2 id="array_contains"><h2 id="pycebes.core.functions.array_contains">array_contains</h2><a class="headerlink" href="#array_contains" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">array_contains</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns true if the array contains <code>value</code></p>
+<h2 id="shift_right_unsigned"><h2 id="pycebes.core.functions.shift_right_unsigned">shift_right_unsigned</h2><a class="headerlink" href="#shift_right_unsigned" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">shift_right_unsigned</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">num_bits</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Unsigned shift the given value <code>num_bits</code> right. If the given value is a long value, this function
+will return a long value else it will return an integer value.</p>
+<h2 id="current_date"><h2 id="pycebes.core.functions.current_date">current_date</h2><a class="headerlink" href="#current_date" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">current_date</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Returns the current date as a date column</p>
+<h2 id="collect_list"><h2 id="pycebes.core.functions.collect_list">collect_list</h2><a class="headerlink" href="#collect_list" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">collect_list</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns a list of objects with duplicates</p>
+<h2 id="trim"><h2 id="pycebes.core.functions.trim">trim</h2><a class="headerlink" href="#trim" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">trim</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Trim the spaces from both ends for the specified string column</p>
+<h2 id="log10"><h2 id="pycebes.core.functions.log10">log10</h2><a class="headerlink" href="#log10" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">log10</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the logarithm of the given value in base 10</p>
+<h2 id="initcap"><h2 id="pycebes.core.functions.initcap">initcap</h2><a class="headerlink" href="#initcap" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">initcap</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns a new string column by converting the first letter of each word to uppercase.
+Words are delimited by whitespace.
+For example, "hello world" will become "Hello World".</p>
+<h2 id="to_utc_timestamp"><h2 id="pycebes.core.functions.to_utc_timestamp">to_utc_timestamp</h2><a class="headerlink" href="#to_utc_timestamp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">to_utc_timestamp</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Assumes given timestamp is in given timezone and converts to UTC</p>
+<h2 id="count_distinct"><h2 id="pycebes.core.functions.count_distinct">count_distinct</h2><a class="headerlink" href="#count_distinct" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">count_distinct</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+
+
+<p>returns the number of distinct items in a group</p>
+<h2 id="create_map"><h2 id="pycebes.core.functions.create_map">create_map</h2><a class="headerlink" href="#create_map" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">create_map</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Creates a new map column. The input columns must be grouped as key-value pairs, e.g.
+(key1, value1, key2, value2, ...). The key columns must all have the same data type, and can't
+be null. The value columns must all have the same data type.</p>
+<h2 id="substring"><h2 id="pycebes.core.functions.substring">substring</h2><a class="headerlink" href="#substring" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">substring</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Substring starts at <code>pos</code> and is of length <code>l</code> when str is String type or
+returns the slice of byte array that starts at <code>pos</code> in byte and is of length <code>l</code>
+when <code>column</code> is Binary type</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>column</strong>: a <code>Column</code> object, or a column name</li>
+<li><strong>pos</strong>: starting position, can be an integer, or a <code>Column</code> with its expression giving an integer value</li>
+<li><strong>l</strong>: length of the substring, can be an integer, or a <code>Column</code> with its expression giving an integer value</li>
+</ul>
+<h2 id="min"><h2 id="pycebes.core.functions.min">min</h2><a class="headerlink" href="#min" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the kurtosis of the values in a group</p>
+<h2 id="rpad"><h2 id="pycebes.core.functions.rpad">rpad</h2><a class="headerlink" href="#rpad" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">rpad</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">pad_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Left-pad the string column</p>
+<h2 id="from_unixtime"><h2 id="pycebes.core.functions.from_unixtime">from_unixtime</h2><a class="headerlink" href="#from_unixtime" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">from_unixtime</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;yyyy-MM-dd HH:mm:ss&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Converts the number of seconds from unix epoch (1970-01-01 00:00:00 UTC) to a string
+representing the timestamp of that moment in the current system time zone in the given
+format.</p>
+<h2 id="locate"><h2 id="pycebes.core.functions.locate">locate</h2><a class="headerlink" href="#locate" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">locate</span><span class="p">(</span><span class="n">substr</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Locate the position of the first occurrence of substr.
+If <code>pos</code> is not None, only search after position <code>pos</code>.</p>
+<blockquote>
+<p>The position is not zero based, but 1 based index, returns 0 if substr
+   could not be found in str.</p>
+</blockquote>
+<h2 id="when"><h2 id="pycebes.core.functions.when">when</h2><a class="headerlink" href="#when" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">when</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Evaluates a list of conditions and returns one of multiple possible result expressions.
+If otherwise is not defined at the end, null is returned for unmatched conditions.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>condition (Column)</strong>: the condition</li>
+<li><strong>value</strong>: value to take when condition is true</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># encoding gender string column into integer</span>
+<span class="n">people</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="log1p"><h2 id="pycebes.core.functions.log1p">log1p</h2><a class="headerlink" href="#log1p" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">log1p</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the natural logarithm of the given value plus one</p>
+<h2 id="shift_right"><h2 id="pycebes.core.functions.shift_right">shift_right</h2><a class="headerlink" href="#shift_right" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">shift_right</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">num_bits</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Shift the given value <code>num_bits</code> right. If the given value is a long value, this function
+will return a long value else it will return an integer value.</p>
+<h2 id="input_file_name"><h2 id="pycebes.core.functions.input_file_name">input_file_name</h2><a class="headerlink" href="#input_file_name" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">input_file_name</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Spark-specific: Creates a string column for the file name of the current Spark task</p>
+<h2 id="expr"><h2 id="pycebes.core.functions.expr">expr</h2><a class="headerlink" href="#expr" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">expr</span><span class="p">(</span><span class="n">expr_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Parses the expression string into the column that it represents</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># get the number of words of each length</span>
+<span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">expr</span><span class="p">(</span><span class="s2">&quot;length(word)&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+
+<h2 id="covar_samp"><h2 id="pycebes.core.functions.covar_samp">covar_samp</h2><a class="headerlink" href="#covar_samp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">covar_samp</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the sample covariance for two columns</p>
+<h2 id="dayofyear"><h2 id="pycebes.core.functions.dayofyear">dayofyear</h2><a class="headerlink" href="#dayofyear" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">dayofyear</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the day of the year as an integer from a given date/timestamp/string</p>
+<h2 id="date_format"><h2 id="pycebes.core.functions.date_format">date_format</h2><a class="headerlink" href="#date_format" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">date_format</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Converts a date/timestamp/string to a value of string in the format specified by the date
+format given by the second argument.</p>
+<p>A pattern could be for instance <code>dd.MM.yyyy</code> and could return a string like '18.03.1993'. All
+pattern letters of [[java.text.SimpleDateFormat]] can be used.</p>
+<blockquote>
+<p>Use when ever possible specialized functions like :func:<code>year</code>. These benefit from a
+    specialized implementation.</p>
+</blockquote>
+<h2 id="shift_left"><h2 id="pycebes.core.functions.shift_left">shift_left</h2><a class="headerlink" href="#shift_left" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">shift_left</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">num_bits</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Shift the given value <code>num_bits</code> left. If the given value is a long value, this function
+will return a long value else it will return an integer value.</p>
+<h2 id="monotonically_increasing_id"><h2 id="pycebes.core.functions.monotonically_increasing_id">monotonically_increasing_id</h2><a class="headerlink" href="#monotonically_increasing_id" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">monotonically_increasing_id</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Spark-specific: A column expression that generates monotonically increasing 64-bit integers.</p>
+<p>The generated ID is guaranteed to be monotonically increasing and unique, but not consecutive.
+The current implementation puts the partition ID in the upper 31 bits, and the record number
+within each partition in the lower 33 bits. The assumption is that the data frame has
+less than 1 billion partitions, and each partition has less than 8 billion records.</p>
+<p>As an example, consider a <code>Dataframe</code> with two partitions, each with 3 records.
+This expression would return the following IDs:</p>
+<p>0, 1, 2, 8589934592 (1L &lt;&lt; 33), 8589934593, 8589934594.</p>
+<h2 id="unbase64"><h2 id="pycebes.core.functions.unbase64">unbase64</h2><a class="headerlink" href="#unbase64" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">unbase64</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Decodes a BASE64 encoded string column and returns it as a binary column.
+This is the reverse of base64.</p>
+<h2 id="trunc"><h2 id="pycebes.core.functions.trunc">trunc</h2><a class="headerlink" href="#trunc" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">trunc</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns date truncated to the unit specified by the format.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>column</strong>: the source column, can be a <code>Column</code> object or a string (column name)</li>
+<li><strong>fmt</strong>: 'year', 'yyyy', 'yy' for truncate by year,
+        or 'month', 'mon', 'mm' for truncate by month</li>
+</ul>
+<h2 id="spark_partition_id"><h2 id="pycebes.core.functions.spark_partition_id">spark_partition_id</h2><a class="headerlink" href="#spark_partition_id" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">spark_partition_id</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Spark-specific: Partition ID of the Spark task.</p>
+<blockquote>
+<p>This is un-deterministic because it depends on data partitioning and task scheduling.</p>
+</blockquote>
+<h2 id="split"><h2 id="pycebes.core.functions.split">split</h2><a class="headerlink" href="#split" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">split</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Splits str around pattern (pattern is a regular expression)</p>
+<blockquote>
+<p>pattern is a string representation of the regular expression</p>
+</blockquote>
+<h2 id="grouping_id"><h2 id="pycebes.core.functions.grouping_id">grouping_id</h2><a class="headerlink" href="#grouping_id" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">grouping_id</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>returns the level of grouping, equals to</p>
+<p><code>(grouping(c1) &lt;&lt; (n-1)) + (grouping(c2) &lt;&lt; (n-2)) + ... + grouping(cn)</code></p>
+<blockquote>
+<p>the list of columns should match with grouping columns exactly, or empty (means all the
+   grouping columns).</p>
+</blockquote>
+<h2 id="size"><h2 id="pycebes.core.functions.size">size</h2><a class="headerlink" href="#size" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">size</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns length of array or map</p>
+<h2 id="rint"><h2 id="pycebes.core.functions.rint">rint</h2><a class="headerlink" href="#rint" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">rint</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the double value that is closest in value to the argument and
+is equal to a mathematical integer.</p>
+<h2 id="cos"><h2 id="pycebes.core.functions.cos">cos</h2><a class="headerlink" href="#cos" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">cos</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the cosine of the given value</p>
+<h2 id="current_timestamp"><h2 id="pycebes.core.functions.current_timestamp">current_timestamp</h2><a class="headerlink" href="#current_timestamp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">current_timestamp</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Returns the current timestamp as a timestamp column</p>
+<h2 id="approx_count_distinct"><h2 id="pycebes.core.functions.approx_count_distinct">approx_count_distinct</h2><a class="headerlink" href="#approx_count_distinct" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">approx_count_distinct</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">rsd</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the approximate number of distinct items in a group.</p>
+<p><strong>Arguments:</strong></p>
+<p>column (Column): the column to compute
+rsd: maximum estimation error allowed (default = 0.05)</p>
+<h2 id="stddev_samp"><h2 id="pycebes.core.functions.stddev_samp">stddev_samp</h2><a class="headerlink" href="#stddev_samp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">stddev_samp</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the sample standard deviation of the expression in a group.</p>
+<h2 id="sha2"><h2 id="pycebes.core.functions.sha2">sha2</h2><a class="headerlink" href="#sha2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">sha2</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">num_bits</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Calculates the SHA-2 family of hash functions of a binary column and
+returns the value as a hex string</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>column</strong>: column to compute SHA-2 on. Can be a <code>Column</code> or a string (a column name)</li>
+<li><strong>num_bits</strong>: one of 224, 256, 384, or 512</li>
+</ul>
+<h2 id="bround"><h2 id="pycebes.core.functions.bround">bround</h2><a class="headerlink" href="#bround" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">bround</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Round the value of <code>column</code> to <code>scale</code> decimal places with HALF_EVEN round mode if <code>scale &gt;= 0</code>
+or at integral part when <code>scale &lt; 0</code></p>
+<h2 id="hypot"><h2 id="pycebes.core.functions.hypot">hypot</h2><a class="headerlink" href="#hypot" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">hypot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes <code>sqrt(x^2 + y^2)</code> without intermediate overflow or underflow
+See <code>atan2</code> to compute the angle.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: can be a <code>Column</code>, a string (column name), or a double value</li>
+<li><strong>y</strong>: can be a <code>Column</code>, a string (column name), or a double value</li>
+</ul>
+<h2 id="greatest"><h2 id="pycebes.core.functions.greatest">greatest</h2><a class="headerlink" href="#greatest" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">greatest</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the greatest value of the list of values, skipping null values.
+This function takes at least 2 parameters. It will return null iff all parameters are null.</p>
+<h2 id="pmod"><h2 id="pycebes.core.functions.pmod">pmod</h2><a class="headerlink" href="#pmod" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">pmod</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span> <span class="n">divisor</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the positive value of dividend mod divisor.
+<code>dividend</code> and <code>divisor</code> can be <code>Column</code> or strings (column names)</p>
+<h2 id="conv"><h2 id="pycebes.core.functions.conv">conv</h2><a class="headerlink" href="#conv" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">conv</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">from_base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">to_base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Convert a number in a string column from one base to another</p>
+<h2 id="hash"><h2 id="pycebes.core.functions.hash">hash</h2><a class="headerlink" href="#hash" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">hash</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Calculates the hash code of given columns, and returns the result as an int column</p>
+<h2 id="length"><h2 id="pycebes.core.functions.length">length</h2><a class="headerlink" href="#length" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the length of a given string or binary column</p>
+<h2 id="skewness"><h2 id="pycebes.core.functions.skewness">skewness</h2><a class="headerlink" href="#skewness" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">skewness</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the kurtosis of the values in a group</p>
+<h2 id="decode"><h2 id="pycebes.core.functions.decode">decode</h2><a class="headerlink" href="#decode" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">decode</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s1">&#39;US-ASCII&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the first argument into a string from a binary using the provided character set
+(one of 'US-ASCII', 'ISO-8859-1', 'UTF-8', 'UTF-16BE', 'UTF-16LE', 'UTF-16').</p>
+<p>If either argument is null, the result will also be null.</p>
+<h2 id="array"><h2 id="pycebes.core.functions.array">array</h2><a class="headerlink" href="#array" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">array</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Creates a new array column. The input columns must all have the same data type.</p>
+<h2 id="floor"><h2 id="pycebes.core.functions.floor">floor</h2><a class="headerlink" href="#floor" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the floor of the given value</p>
+<h2 id="datediff"><h2 id="pycebes.core.functions.datediff">datediff</h2><a class="headerlink" href="#datediff" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">datediff</span><span class="p">(</span><span class="n">end_column</span><span class="p">,</span> <span class="n">start_column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the number of days from <code>start</code> to <code>end</code></p>
+<h2 id="acos"><h2 id="pycebes.core.functions.acos">acos</h2><a class="headerlink" href="#acos" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">acos</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the cosine inverse of the given value; the returned angle is in the range 0.0 through pi.</p>
+<h2 id="avg"><h2 id="pycebes.core.functions.mean">avg</h2><a class="headerlink" href="#avg" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">avg</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the average of the values in a group</p>
+<h2 id="from_utc_timestamp"><h2 id="pycebes.core.functions.from_utc_timestamp">from_utc_timestamp</h2><a class="headerlink" href="#from_utc_timestamp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">from_utc_timestamp</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Assumes given timestamp is UTC and converts to given timezone</p>
+<h2 id="factorial"><h2 id="pycebes.core.functions.factorial">factorial</h2><a class="headerlink" href="#factorial" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the factorial of the given value</p>
+<h2 id="dayofmonth"><h2 id="pycebes.core.functions.dayofmonth">dayofmonth</h2><a class="headerlink" href="#dayofmonth" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">dayofmonth</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the day of the month as an integer from a given date/timestamp/string</p>
+<h2 id="avg_1"><h2 id="pycebes.core.functions.avg">avg</h2><a class="headerlink" href="#avg_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">avg</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the average of the values in a group</p>
+<h2 id="randn"><h2 id="pycebes.core.functions.randn">randn</h2><a class="headerlink" href="#randn" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">randn</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Generate a column with i.i.d. samples from the standard normal distribution.
+<code>seed</code> will be automatically randomly generated by <code>random.randint(0, 1000)</code> if not specified.</p>
+<blockquote>
+<p>This is un-deterministic when data partitions are not fixed.</p>
+</blockquote>
+<h2 id="soundex"><h2 id="pycebes.core.functions.soundex">soundex</h2><a class="headerlink" href="#soundex" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">soundex</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Return the soundex code for the specified expression</p>
+<h2 id="to_date"><h2 id="pycebes.core.functions.to_date">to_date</h2><a class="headerlink" href="#to_date" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">to_date</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Converts the column into DateType</p>
+<h2 id="bitwise_not"><h2 id="pycebes.core.functions.bitwise_not">bitwise_not</h2><a class="headerlink" href="#bitwise_not" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">bitwise_not</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes bitwise NOT.</p>
+<h2 id="stddev_pop"><h2 id="pycebes.core.functions.stddev_pop">stddev_pop</h2><a class="headerlink" href="#stddev_pop" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">stddev_pop</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the population standard deviation of the expression in a group.</p>
+<h2 id="concat_ws"><h2 id="pycebes.core.functions.concat_ws">concat_ws</h2><a class="headerlink" href="#concat_ws" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">concat_ws</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Concatenates multiple input string columns together into a single string column,
+using the given separator</p>
+<h2 id="abs"><h2 id="pycebes.core.functions.abs">abs</h2><a class="headerlink" href="#abs" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the absolute value</p>
+<h2 id="to_radians"><h2 id="pycebes.core.functions.to_radians">to_radians</h2><a class="headerlink" href="#to_radians" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">to_radians</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Converts an angle measured in degrees to an approximately equivalent angle measured in radians</p>
+<h2 id="pow"><h2 id="pycebes.core.functions.pow">pow</h2><a class="headerlink" href="#pow" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">pow</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the value of the first argument raised to the power of the second argument</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>left</strong>: can be a <code>Column</code>, a string (column name), or a double value</li>
+<li><strong>right</strong>: can be a <code>Column</code>, a string (column name), or a double value</li>
+</ul>
+<h2 id="sqrt"><h2 id="pycebes.core.functions.sqrt">sqrt</h2><a class="headerlink" href="#sqrt" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the square root of the specified float value.</p>
+<h2 id="regexp_replace"><h2 id="pycebes.core.functions.regexp_replace">regexp_replace</h2><a class="headerlink" href="#regexp_replace" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">regexp_replace</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">replacement</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Replace all substrings of the specified string value that match regexp with rep.</p>
+<h2 id="date_sub"><h2 id="pycebes.core.functions.date_sub">date_sub</h2><a class="headerlink" href="#date_sub" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">date_sub</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the date that is <code>days</code> days before the date in <code>column</code></p>
+<h2 id="lower"><h2 id="pycebes.core.functions.lower">lower</h2><a class="headerlink" href="#lower" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">lower</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Converts a string column to lower case</p>
+<h2 id="levenshtein"><h2 id="pycebes.core.functions.levenshtein">levenshtein</h2><a class="headerlink" href="#levenshtein" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">levenshtein</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the Levenshtein distance of the two given string columns</p>
+<h2 id="var_samp_1"><h2 id="pycebes.core.functions.variance">var_samp</h2><a class="headerlink" href="#var_samp_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">var_samp</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the unbiased variance of the values in a group</p>
+<p>See <code>var_pop</code> for computing the population variance.</p>
+<h2 id="hex"><h2 id="pycebes.core.functions.hex">hex</h2><a class="headerlink" href="#hex" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="nb">hex</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes hex value of the given column</p>
+<h2 id="sinh"><h2 id="pycebes.core.functions.sinh">sinh</h2><a class="headerlink" href="#sinh" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">sinh</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the hyperbolic sine of the given value</p>
+<h2 id="to_degrees"><h2 id="pycebes.core.functions.to_degrees">to_degrees</h2><a class="headerlink" href="#to_degrees" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">to_degrees</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Converts an angle measured in radians to an approximately equivalent angle measured in degrees</p>
+<h2 id="grouping"><h2 id="pycebes.core.functions.grouping">grouping</h2><a class="headerlink" href="#grouping" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">grouping</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>indicates whether a specified column in a GROUP BY list is aggregated
+or not, returns 1 for aggregated or 0 for not aggregated in the result set.</p>
+<h2 id="stddev_samp_1"><h2 id="pycebes.core.functions.stddev">stddev_samp</h2><a class="headerlink" href="#stddev_samp_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">stddev_samp</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the sample standard deviation of the expression in a group.</p>
+<h2 id="translate"><h2 id="pycebes.core.functions.translate">translate</h2><a class="headerlink" href="#translate" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">translate</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">matching_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">replace_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Translate any character in the <code>column</code> by a character in <code>replace_str</code>.
+The characters in <code>replace_str</code> correspond to the characters in <code>matching_str</code>.
+The translate will happen when any character in the string matches the character
+in the <code>matching_str</code>.</p>
+<h2 id="format_number"><h2 id="pycebes.core.functions.format_number">format_number</h2><a class="headerlink" href="#format_number" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">format_number</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Formats numeric column x to a format like '#,###,##``.##', rounded to d decimal places,
+and returns the result as a string column.</p>
+<div class="codehilite"><pre><span></span>* If d is 0, the result has no decimal point or fractional part.
+* If d &lt; 0, the result will be null.
+</pre></div>
+
+
+<h2 id="lpad"><h2 id="pycebes.core.functions.lpad">lpad</h2><a class="headerlink" href="#lpad" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">lpad</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">pad_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Left-pad the string column</p>
+<h2 id="sin"><h2 id="pycebes.core.functions.sin">sin</h2><a class="headerlink" href="#sin" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the sine of the given value</p>
+<h2 id="coalesce"><h2 id="pycebes.core.functions.coalesce">coalesce</h2><a class="headerlink" href="#coalesce" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">coalesce</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the first column that is not null, or null if all inputs are null.</p>
+<p>For example, <code>coalesce(a, b, c)</code> will return a if a is not null,
+or b if a is null and b is not null, or c if both a and b are null but c is not null.</p>
+<h2 id="least"><h2 id="pycebes.core.functions.least">least</h2><a class="headerlink" href="#least" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">least</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the least value of the list of values, skipping null values.
+This function takes at least 2 parameters. It will return null iff all parameters are null.</p>
+<h2 id="asin"><h2 id="pycebes.core.functions.asin">asin</h2><a class="headerlink" href="#asin" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">asin</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the sine inverse of the given value; the returned angle is in the range -pi/2 through pi/2.</p>
+<h2 id="minute"><h2 id="pycebes.core.functions.minute">minute</h2><a class="headerlink" href="#minute" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">minute</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the minutes as an integer from a given date/timestamp/string</p>
+<h2 id="quarter"><h2 id="pycebes.core.functions.quarter">quarter</h2><a class="headerlink" href="#quarter" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">quarter</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the quarter as an integer from a given date/timestamp/string</p>
+<h2 id="tan"><h2 id="pycebes.core.functions.tan">tan</h2><a class="headerlink" href="#tan" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">tan</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the tangent of the given value</p>
+<h2 id="last"><h2 id="pycebes.core.functions.last">last</h2><a class="headerlink" href="#last" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">last</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">ignore_nulls</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the last value in a group.</p>
+<p>The function by default returns the last values it sees. It will return the last non-null
+value it sees when <code>ignore_nulls</code> is set to true. If all values are null, then null is returned.</p>
+<h2 id="window"><h2 id="pycebes.core.functions.window">window</h2><a class="headerlink" href="#window" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">window</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">window_duration</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">slide_duration</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="s1">&#39;0 second&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Bucketize rows into one or more time windows given a timestamp specifying column. Window
+starts are inclusive but the window ends are exclusive, e.g. <code>12:05</code> will be in the window
+<code>[12:05,12:10)</code> but not in <code>[12:00,12:05)</code>.</p>
+<p>Windows can support microsecond precision. Windows in the order of months are not supported.</p>
+<p>The following example takes the average stock price for a one minute window every 10 seconds
+starting 5 seconds after the hour:</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># schema: timestamp: TimestampType, stockId: StringType, price: DoubleType</span>
+<span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span> <span class="s2">&quot;1 minute&quot;</span><span class="p">,</span> <span class="s2">&quot;10 seconds&quot;</span><span class="p">,</span> <span class="s2">&quot;5 seconds&quot;</span><span class="p">),</span> <span class="n">df</span><span class="o">.</span><span class="n">stockId</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">))</span>
+</pre></div>
+
+
+<p>The windows will look like:</p>
+<div class="codehilite"><pre><span></span>    <span class="mi">09</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">05</span><span class="o">-</span><span class="mi">09</span><span class="p">:</span><span class="mo">01</span><span class="p">:</span><span class="mo">05</span>
+    <span class="mi">09</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">15</span><span class="o">-</span><span class="mi">09</span><span class="p">:</span><span class="mo">01</span><span class="p">:</span><span class="mi">15</span>
+    <span class="mi">09</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">25</span><span class="o">-</span><span class="mi">09</span><span class="p">:</span><span class="mo">01</span><span class="p">:</span><span class="mi">25</span> <span class="o">...</span>
+</pre></div>
+
+
+<p>For a streaming query, you may use the function <code>current_timestamp</code> to generate windows on
+processing time.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>column</strong>: The column or the expression to use as the timestamp for windowing by time.
+               The time column must be of TimestampType.</li>
+<li><strong>window_duration</strong>: A string specifying the width of the window, e.g. <code>10 minutes</code>,
+                <code>1 second</code>. Check <code>CalendarIntervalType</code> for
+                valid duration identifiers. Note that the duration is a fixed length of
+                time, and does not vary over time according to a calendar. For example,
+                <code>1 day</code> always means <code>86,400,000 milliseconds</code>, not a calendar day.</li>
+<li><strong>slide_duration</strong>: A string specifying the sliding interval of the window, e.g. <code>1 minute</code>.
+                A new window will be generated every <code>slide_duration</code>. Must be less than
+                or equal to the <code>window_duration</code>.
+                This duration is likewise absolute, and does not vary according to a calendar.
+                If unspecified, <code>slide_duration</code> will be equal to <code>window_duration</code></li>
+<li>__start_time (str): The offset with respect to <code>1970-01-01 00:00__:00 UTC</code> with which to start
+                    window intervals. For example, in order to have hourly tumbling windows</li>
+<li>__that start 15 minutes past the hour, e.g. <code>12:15 - 13:15</code>, <code>13:15 - 14__:15</code>...
+                    provide <code>start_time</code> as <code>15 minutes</code>.</li>
+</ul>
+<h2 id="is_nan"><h2 id="pycebes.core.functions.is_nan">is_nan</h2><a class="headerlink" href="#is_nan" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">is_nan</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Return true iff the column is NaN</p>
+<h2 id="month"><h2 id="pycebes.core.functions.month">month</h2><a class="headerlink" href="#month" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">month</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the month as an integer from a given date/timestamp/string</p>
+<h2 id="encode"><h2 id="pycebes.core.functions.encode">encode</h2><a class="headerlink" href="#encode" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">encode</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s1">&#39;US-ASCII&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the first argument into a binary from a string using the provided character set
+(one of 'US-ASCII', 'ISO-8859-1', 'UTF-8', 'UTF-16BE', 'UTF-16LE', 'UTF-16').</p>
+<p>If either argument is null, the result will also be null.</p>
+<h2 id="collect_set"><h2 id="pycebes.core.functions.collect_set">collect_set</h2><a class="headerlink" href="#collect_set" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">collect_set</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns a set of objects with duplicate elements eliminated</p>
+<h2 id="log2"><h2 id="pycebes.core.functions.log2">log2</h2><a class="headerlink" href="#log2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">log2</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the logarithm of the given column in base 2</p>
+<h2 id="atan2"><h2 id="pycebes.core.functions.atan2">atan2</h2><a class="headerlink" href="#atan2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">atan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the angle theta from the conversion of rectangular coordinates (x, y) to polar coordinates (r, theta)</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: the x-component, can be a <code>Column</code>, a string (column name), or a float value</li>
+<li><strong>y</strong>: the y-component, can be a <code>Column</code>, a string (column name), or a float value</li>
+</ul>
+<h2 id="next_day"><h2 id="pycebes.core.functions.next_day">next_day</h2><a class="headerlink" href="#next_day" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">next_day</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">day_of_week</span><span class="o">=</span><span class="s1">&#39;mon&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Given a date column, returns the first date which is later than the value of the date column
+that is on the specified day of the week.</p>
+<p>For example, <code>next_day('2015-07-27', "Sunday")</code> returns 2015-08-02 because that is the first
+Sunday after 2015-07-27.</p>
+<p>Day of the week parameter is case insensitive, and accepts:</p>
+<div class="codehilite"><pre><span></span>&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;.
+</pre></div>
+
+
+<h2 id="atan"><h2 id="pycebes.core.functions.atan">atan</h2><a class="headerlink" href="#atan" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">atan</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the tangent inverse of the given value</p>
+<h2 id="col"><h2 id="pycebes.core.functions.col">col</h2><a class="headerlink" href="#col" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">col</span><span class="p">(</span><span class="n">col_name</span><span class="o">=</span><span class="s1">&#39;column&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns a <code>Column</code> based on the given column name.</p>
+<h2 id="months_between"><h2 id="pycebes.core.functions.months_between">months_between</h2><a class="headerlink" href="#months_between" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">months_between</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns number of months between dates <code>column1</code> and <code>column2</code></p>
+<h2 id="cosh"><h2 id="pycebes.core.functions.cosh">cosh</h2><a class="headerlink" href="#cosh" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">cosh</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the hyperbolic cosine of the given value</p>
+<h2 id="add_months"><h2 id="pycebes.core.functions.add_months">add_months</h2><a class="headerlink" href="#add_months" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">add_months</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">num_months</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the date that is <code>num_months</code> after the date in <code>column</code></p>
+<h2 id="ceil"><h2 id="pycebes.core.functions.ceil">ceil</h2><a class="headerlink" href="#ceil" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">ceil</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the ceiling of the given value.</p>
+<h2 id="second"><h2 id="pycebes.core.functions.second">second</h2><a class="headerlink" href="#second" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">second</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the seconds as an integer from a given date/timestamp/string</p>
+<h2 id="var_pop"><h2 id="pycebes.core.functions.var_pop">var_pop</h2><a class="headerlink" href="#var_pop" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">var_pop</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the population variance of the values in a group</p>
+<p>See <code>var_samp</code> for computing the unbiased variance.</p>
+<h2 id="corr"><h2 id="pycebes.core.functions.corr">corr</h2><a class="headerlink" href="#corr" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">corr</span><span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the Pearson Correlation Coefficient for two columns</p>
+<h2 id="exp"><h2 id="pycebes.core.functions.exp">exp</h2><a class="headerlink" href="#exp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">exp</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Computes the exponential of the given value</p>
+<h2 id="year"><h2 id="pycebes.core.functions.year">year</h2><a class="headerlink" href="#year" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">year</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Extracts the year as an integer from a given date/timestamp/string</p>
+<h2 id="rand"><h2 id="pycebes.core.functions.rand">rand</h2><a class="headerlink" href="#rand" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">rand</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Generate a random column with i.i.d. samples from U[0.0, 1.0].
+<code>seed</code> will be automatically randomly generated by <code>random.randint(0, 1000)</code> if not specified.</p>
+<blockquote>
+<p>This is un-deterministic when data partitions are not fixed.</p>
+</blockquote>
+<h2 id="kurtosis"><h2 id="pycebes.core.functions.kurtosis">kurtosis</h2><a class="headerlink" href="#kurtosis" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">kurtosis</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns the kurtosis of the values in a group</p>
+<h1 id="column"><h1 id="pycebes.core.column.Column">Column</h1><a class="headerlink" href="#column" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="otherwise"><h2 id="pycebes.core.column.Column.otherwise">otherwise</h2><a class="headerlink" href="#otherwise" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Evaluates a list of conditions and returns one of multiple possible result expressions.
+If otherwise() is not defined at the end, <code>null</code> is returned for unmatched conditions.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># encoding gender string column into integer.</span>
+<span class="n">people</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="alias"><h2 id="pycebes.core.column.Column.alias">alias</h2><a class="headerlink" href="#alias" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">alias</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Gives the column an alias, or multiple aliases in case it is used on an expression
+that returns more than one column (such as <code>explode</code>).</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># Renames colA to colB in select output.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colA</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;colB&#39;</span><span class="p">))</span>
+
+<span class="c1"># multiple alias</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">myMap</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="equal_null_safe"><h2 id="pycebes.core.column.Column.equal_null_safe">equal_null_safe</h2><a class="headerlink" href="#equal_null_safe" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">equal_null_safe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Equality test that is safe for null values.
+Returns same result with EQUAL(=) operator for non-null operands,
+but returns <code>true</code> if both are <code>NULL</code>, <code>false</code> if one of the them is <code>NULL</code>.</p>
+<h2 id="contains"><h2 id="pycebes.core.column.Column.contains">contains</h2><a class="headerlink" href="#contains" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Contains the other element</p>
+<h2 id="cast"><h2 id="pycebes.core.column.Column.cast">cast</h2><a class="headerlink" href="#cast" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Casts the column to a different data type.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>to (StorageType)</strong>: the StorageType to cast to</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># Casts colA to [[IntegerType]].</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colA</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">IntegerType</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colA</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="desc"><h2 id="pycebes.core.column.Column.desc">desc</h2><a class="headerlink" href="#desc" title="Permanent link">&para;</a></h2>
+<p>Returns an ordering used in sorting.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">col1</span><span class="o">.</span><span class="n">desc</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="to_json"><h2 id="pycebes.core.column.Column.to_json">to_json</h2><a class="headerlink" href="#to_json" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Serialize the Column into JSON format</p>
+<p><strong>Returns</strong></p>
+<p>JSON representation of this Column</p>
+<h2 id="name"><h2 id="pycebes.core.column.Column.name">name</h2><a class="headerlink" href="#name" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">alias</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Gives the column a name. Same as :func:<code>alias</code></p>
+<h2 id="asc"><h2 id="pycebes.core.column.Column.asc">asc</h2><a class="headerlink" href="#asc" title="Permanent link">&para;</a></h2>
+<p>Returns an ordering used in sorting.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">col1</span><span class="o">.</span><span class="n">asc</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="bitwise_not_1"><h2 id="pycebes.core.column.Column.bitwise_not">bitwise_not</h2><a class="headerlink" href="#bitwise_not_1" title="Permanent link">&para;</a></h2>
+<p>Compute bitwise NOT of this expression</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colA</span><span class="o">.</span><span class="n">bitwise_not</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="substr"><h2 id="pycebes.core.column.Column.substr">substr</h2><a class="headerlink" href="#substr" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">substr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_pos</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+</pre></div>
+
+
+<p>An expression that returns a substring.</p>
+<p>This is not zero-based, but 1-based index. The first character in str has index 1.</p>
+<p><code>start_pos</code> and <code>length</code> are handled specially:</p>
+<ul>
+<li><code>"Content".substr(1, 3)</code> gives <code>"Con"</code></li>
+<li><code>"Content".substr(-100, 2)</code> gives <code>""</code></li>
+<li><code>"Content".substr(-100, 102)</code> gives <code>"Content"</code></li>
+<li><code>"Content".substr(2, 100)</code> gives <code>"ontent"</code></li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>start_pos</strong>: starting position, can be an integer, or a <code>Column</code> that gives an integer</li>
+<li><strong>length</strong>: length of the sub-string, can be an integer, or a <code>Column</code> that gives an integer</li>
+</ul>
+<h2 id="starts_with"><h2 id="pycebes.core.column.Column.starts_with">starts_with</h2><a class="headerlink" href="#starts_with" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">starts_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+
+
+<p>String starts with.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>other</strong>: string to test, can be a string, or a <code>Column</code>  that gives a string</li>
+</ul>
+<h2 id="isin"><h2 id="pycebes.core.column.Column.isin">isin</h2><a class="headerlink" href="#isin" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+
+<p>A boolean expression that is evaluated to true if the value of this expression is contained
+by the evaluated values of the arguments.</p>
+<h2 id="is_null_1"><h2 id="pycebes.core.column.Column.is_null">is_null</h2><a class="headerlink" href="#is_null_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">is_null</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>True if the current expression is null.</p>
+<h2 id="between"><h2 id="pycebes.core.column.Column.between">between</h2><a class="headerlink" href="#between" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">)</span>
+</pre></div>
+
+
+<p>True if the current column is between the lower bound and upper bound, inclusive.</p>
+<h2 id="bitwise_or"><h2 id="pycebes.core.column.Column.bitwise_or">bitwise_or</h2><a class="headerlink" href="#bitwise_or" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Compute bitwise OR of this expression with another expression.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span>    <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colA</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colB</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="get_field"><h2 id="pycebes.core.column.Column.get_field">get_field</h2><a class="headerlink" href="#get_field" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>An expression that gets a field by name in a StructType column.</p>
+<h2 id="get_item"><h2 id="pycebes.core.column.Column.get_item">get_item</h2><a class="headerlink" href="#get_item" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+
+
+<p>An expression that gets an item at position <code>ordinal</code> out of an array,
+or gets a value by key <code>key</code> in a MapType column.</p>
+<h2 id="is_nan_1"><h2 id="pycebes.core.column.Column.is_nan">is_nan</h2><a class="headerlink" href="#is_nan_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">is_nan</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>True if the current expression is NaN.</p>
+<h2 id="rlike"><h2 id="pycebes.core.column.Column.rlike">rlike</h2><a class="headerlink" href="#rlike" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">rlike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">literal</span><span class="p">)</span>
+</pre></div>
+
+
+<p>SQL RLIKE expression (LIKE with Regex). Result will be a BooleanType column</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>literal</strong>: a string</li>
+</ul>
+<h2 id="like"><h2 id="pycebes.core.column.Column.like">like</h2><a class="headerlink" href="#like" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">literal</span><span class="p">)</span>
+</pre></div>
+
+
+<p>SQL like expression. Result will be a BooleanType column</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>literal</strong>: a string</li>
+</ul>
+<h2 id="bitwise_xor"><h2 id="pycebes.core.column.Column.bitwise_xor">bitwise_xor</h2><a class="headerlink" href="#bitwise_xor" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">bitwise_xor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Compute bitwise XOR of this expression with another expression.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colA</span><span class="o">.</span><span class="n">bitwise_xor</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colB</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="when_1"><h2 id="pycebes.core.column.Column.when">when</h2><a class="headerlink" href="#when_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Evaluates a list of conditions and returns one of multiple possible result expressions.
+If otherwise() is not defined at the end, <code>null</code> is returned for unmatched conditions.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>condition</strong>: the condition to be checked</li>
+<li><strong>value (Column)</strong>: the output value if condition is true</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1"># encoding gender string column into integer.</span>
+<span class="n">people</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="ends_with"><h2 id="pycebes.core.column.Column.ends_with">ends_with</h2><a class="headerlink" href="#ends_with" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">ends_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+
+
+<p>String ends with.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>other</strong>: string to test, can be a string, or a <code>Column</code>  that gives a string</li>
+</ul>
+<h2 id="bitwise_and"><h2 id="pycebes.core.column.Column.bitwise_and">bitwise_and</h2><a class="headerlink" href="#bitwise_and" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Compute bitwise AND of this expression with another expression.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colA</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">colB</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 id="is_not_null"><h2 id="pycebes.core.column.Column.is_not_null">is_not_null</h2><a class="headerlink" href="#is_not_null" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Column</span><span class="o">.</span><span class="n">is_not_null</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>True if the current expression is not null.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../dataframe_reference/" title="Dataframe API Reference" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Dataframe API Reference
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../pipelines_concepts/" title="Key concepts" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Key concepts
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/phvu/cebes-server" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/cebes_io" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://gitter.im/cebes-io/Lobby" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.9fb73e57.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

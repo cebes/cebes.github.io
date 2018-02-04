@@ -1,0 +1,866 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Cebes - the integrated framework for Data Science">
+      
+      
+        <link rel="canonical" href="http://cebes.io/pipelines_repo/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../imgs/cebes.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.0">
+    
+    
+      
+        <title>Working with repositories in pycebes - Cebes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.aa3de92b.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#login-to-a-repository" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://cebes.io/" title="Cebes" class="md-header-nav__button md-logo">
+          
+            <img src="../imgs/cebes_inverse.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Cebes
+              </span>
+              <span class="md-header-nav__topic">
+                Working with repositories in pycebes
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../imgs/cebes_inverse.png" width="24" height="24">
+      
+    </span>
+    Cebes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Cebes Session
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Cebes Session
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_load_data/" title="Load data into Cebes" class="md-nav__link">
+      Load data into Cebes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_df/" title="Manage Dataframes, models and pipelines" class="md-nav__link">
+      Manage Dataframes, models and pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_api/" title="Session API Reference" class="md-nav__link">
+      Session API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Cebes Dataframe
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Cebes Dataframe
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_guide/" title="User guide" class="md-nav__link">
+      User guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_reference/" title="Dataframe API Reference" class="md-nav__link">
+      Dataframe API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_functions/" title="Functional API Reference" class="md-nav__link">
+      Functional API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Cebes Pipelines
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Cebes Pipelines
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_api/" title="Working with Cebes Pipelines" class="md-nav__link">
+      Working with Cebes Pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Pipeline repository
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Pipeline repository
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Working with repositories in pycebes
+      </label>
+    
+    <a href="./" title="Working with repositories in pycebes" class="md-nav__link md-nav__link--active">
+      Working with repositories in pycebes
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#login-to-a-repository" title="Login to a Repository" class="md-nav__link">
+    Login to a Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-a-pipeline-to-repository" title="Push a pipeline to repository" class="md-nav__link">
+    Push a pipeline to repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-a-pipeline-from-repository" title="Pull a pipeline from repository" class="md-nav__link">
+    Pull a pipeline from repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-a-local-repository" title="Start a local repository" class="md-nav__link">
+    Start a local repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-cebes-server-determines-which-repository-to-use" title="How Cebes server determines which repository to use" class="md-nav__link">
+    How Cebes server determines which repository to use
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_deploy/" title="Install pipeline repository" class="md-nav__link">
+      Install pipeline repository
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../serving/" title="Serving pipelines" class="md-nav__link">
+      Serving pipelines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#login-to-a-repository" title="Login to a Repository" class="md-nav__link">
+    Login to a Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-a-pipeline-to-repository" title="Push a pipeline to repository" class="md-nav__link">
+    Push a pipeline to repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-a-pipeline-from-repository" title="Pull a pipeline from repository" class="md-nav__link">
+    Pull a pipeline from repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-a-local-repository" title="Start a local repository" class="md-nav__link">
+    Start a local repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-cebes-server-determines-which-repository-to-use" title="How Cebes server determines which repository to use" class="md-nav__link">
+    How Cebes server determines which repository to use
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="http://github.com/phvu/cebes-server/edit/master/docs/sources/pipelines_repo.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Working with repositories in pycebes</h1>
+                
+                <p><em>Pipeline repository</em> is a web service that stores <a href="../pipelines_concepts/">Cebes pipelines</a>.
+It is a separated component in the Cebes suite and is deployed independently from Cebes server.
+Using <code>pycebes</code>, users can instruct Cebes server to push a pipeline to repository, or pull a pipeline 
+from a repository. Pipeline tags provide user a principled way to manage different versions of the same
+pipeline.</p>
+<p>If you are familiar with Docker, Cebes pipeline repository is analogous to docker repository.</p>
+<p>The recommended setup is to have a repository deployed on a host, and your team share the same 
+repository. This repository can also be used to provide pipelines for <a href="../serving/">serving in production</a>.</p>
+<p>For testing, you can <a href="#start-local-repo">start a local repository</a>, which runs on your local 
+machine in a Docker container. We are also working on a public repository, stay tuned!</p>
+<hr />
+<h2 id="login-to-a-repository">Login to a Repository<a class="headerlink" href="#login-to-a-repository" title="Permanent link">&para;</a></h2>
+<p>Since repository is separated from Cebes server, you need to login to the repository by a username and password:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">get_default_pipeline</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Logged</span> <span class="n">into</span> <span class="n">repository</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.3</span><span class="p">:</span><span class="mi">22000</span>
+</pre></div>
+
+
+<p>Users can specify the repository hostname and port, along with username and password, as arguments to 
+the <code>login</code> function. If username is not None and password is None, Cebes will ask for the password
+interactively. This is recommended, so that passwords do not get stored in the interpreter history.</p>
+<hr />
+<h2 id="push-a-pipeline-to-repository">Push a pipeline to repository<a class="headerlink" href="#push-a-pipeline-to-repository" title="Permanent link">&para;</a></h2>
+<p>From <code>pycebes</code>, you can push a tagged pipeline by using the pipeline object or its tag:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>     
+    <span class="n">UUID</span>                                  <span class="n">Tag</span>                     <span class="n">Created</span>                       <span class="c1"># of stages</span>
+    <span class="o">------------------------------------</span>  <span class="o">----------------------</span>  <span class="o">--------------------------</span>  <span class="o">-------------</span>
+    <span class="n">cac82369</span><span class="o">-</span><span class="n">a6cc</span><span class="o">-</span><span class="mi">40</span><span class="n">db</span><span class="o">-</span><span class="n">a4ca</span><span class="o">-</span><span class="mi">78</span><span class="n">d18e7ec30e</span>  <span class="n">test</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">ppl</span><span class="p">:</span><span class="n">default</span>  <span class="mi">2018</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">57.479000</span>              <span class="mi">3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ppl</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;test-local-ppl&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">ppl</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Using</span> <span class="n">repository</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.3</span><span class="p">:</span><span class="mi">22000</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Pushed</span> <span class="n">successfully</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="s2">&quot;lastUpdate&quot;</span><span class="p">:</span><span class="mi">1515877964875</span><span class="p">,</span><span class="s2">&quot;repositoryName&quot;</span><span class="p">:</span><span class="s2">&quot;test-local-ppl&quot;</span><span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;test-local-ppl&#39;</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Using</span> <span class="n">repository</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.3</span><span class="p">:</span><span class="mi">22000</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Pushed</span> <span class="n">successfully</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="s2">&quot;lastUpdate&quot;</span><span class="p">:</span><span class="mi">1515877972651</span><span class="p">,</span><span class="s2">&quot;repositoryName&quot;</span><span class="p">:</span><span class="s2">&quot;test-local-ppl&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>See <a href="#determine-repository">this section</a> for information on how Cebes determine which repository
+to push to. In this case, since the tag doesn't carry repository address, Cebes pushes it to a local repository.</p>
+<hr />
+<h2 id="pull-a-pipeline-from-repository">Pull a pipeline from repository<a class="headerlink" href="#pull-a-pipeline-from-repository" title="Permanent link">&para;</a></h2>
+<p>Similarly, a pipeline can be pulled from a repository into Cebes server using its tag:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span>  <span class="n">session</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">pull</span><span class="p">(</span><span class="s1">&#39;test-local-ppl&#39;</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Using</span> <span class="n">repository</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.3</span><span class="p">:</span><span class="mi">22000</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Pulled</span> <span class="n">successfully</span><span class="p">:</span> <span class="n">test</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">ppl</span><span class="p">:</span><span class="n">default</span>
+
+    <span class="n">Pipeline</span><span class="p">(</span><span class="n">dataframeplaceholder_0</span><span class="p">,</span> <span class="n">linearregression_0</span><span class="p">,</span> <span class="n">vectorassembler_0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The <code>pull()</code> function returns the pipeline object itself.</p>
+<hr />
+<p><a name="start-local-repo"></a></p>
+<h2 id="start-a-local-repository">Start a local repository<a class="headerlink" href="#start-a-local-repository" title="Permanent link">&para;</a></h2>
+<p>A local repository can be started using <code>Session.start_repository_container</code> and providing a port:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">get_default_session</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">start_repository_container</span><span class="p">(</span><span class="n">host_port</span><span class="o">=</span><span class="mi">35000</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Starting</span> <span class="n">container</span> <span class="n">cebes</span><span class="o">-</span><span class="n">pipeline</span><span class="o">-</span><span class="n">repository</span><span class="o">-</span><span class="n">repo</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="mi">0</span><span class="p">[</span><span class="n">cebes</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="p">]</span> <span class="k">with</span> <span class="n">data</span> <span class="n">path</span> <span class="n">at</span> <span class="err">$</span><span class="n">HOME</span><span class="o">/.</span><span class="n">cebes</span><span class="o">/</span><span class="n">repo</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="n">repository</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Cebes</span> <span class="n">container</span> <span class="n">started</span><span class="p">,</span> <span class="n">listening</span> <span class="n">at</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">35000</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">pycebes</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">session</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="n">repository</span> <span class="n">started</span> <span class="n">on</span> <span class="n">port</span> <span class="mi">35000</span>
+</pre></div>
+
+
+<p><code>host_port</code> is the port on your machine that you will use to talk to the repository on <code>localhost</code>.
+We recommend a high port between 30000 and 40000. If there is already a repository running, 
+<code>start_repository_container()</code> will simply re-use it.</p>
+<p>If you started a local repository in a session, all pipeline pushes and pulls in that session 
+will try to use the local repository (which is at <code>localhost:35000</code>). Of course if the pipeline 
+tag explicitly contains a different repository, it will be used instead.</p>
+<p>The local repository can be stopped with:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">stop_repository_container</span><span class="p">()</span>
+    <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Cebes</span> <span class="n">container</span> <span class="n">stopped</span><span class="p">:</span> <span class="n">cebes</span><span class="o">-</span><span class="n">pipeline</span><span class="o">-</span><span class="n">repository</span><span class="o">-</span><span class="n">repo</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="mi">0</span><span class="p">[</span><span class="n">cebes</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span><span class="p">]</span> <span class="n">at</span> <span class="n">port</span> <span class="mi">35000</span>
+</pre></div>
+
+
+<hr />
+<p><a name="determine-repository"></a></p>
+<h2 id="how-cebes-server-determines-which-repository-to-use">How Cebes server determines which repository to use<a class="headerlink" href="#how-cebes-server-determines-which-repository-to-use" title="Permanent link">&para;</a></h2>
+<p>The repository to which pipelines are pushed or pulled can be confusing. In general, Cebes decides 
+the repository to use in the following order:</p>
+<ol>
+<li>The repository specified in the tag,</li>
+<li>The local repository, if it is started in the session,</li>
+<li>The server-wide default repository configured in Cebes server.</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../pipelines_api/" title="Working with Cebes Pipelines" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Working with Cebes Pipelines
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../pipelines_deploy/" title="Install pipeline repository" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Install pipeline repository
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/phvu/cebes-server" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/cebes_io" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://gitter.im/cebes-io/Lobby" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.9fb73e57.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

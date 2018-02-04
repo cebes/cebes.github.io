@@ -1,0 +1,825 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Cebes - the integrated framework for Data Science">
+      
+      
+        <link rel="canonical" href="http://cebes.io/session_df/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../imgs/cebes.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.0">
+    
+    
+      
+        <title>Manage Dataframes, models and pipelines - Cebes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.aa3de92b.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#managing-dataframes" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://cebes.io/" title="Cebes" class="md-header-nav__button md-logo">
+          
+            <img src="../imgs/cebes_inverse.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Cebes
+              </span>
+              <span class="md-header-nav__topic">
+                Manage Dataframes, models and pipelines
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../imgs/cebes_inverse.png" width="24" height="24">
+      
+    </span>
+    Cebes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Cebes Session
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Cebes Session
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_load_data/" title="Load data into Cebes" class="md-nav__link">
+      Load data into Cebes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Manage Dataframes, models and pipelines
+      </label>
+    
+    <a href="./" title="Manage Dataframes, models and pipelines" class="md-nav__link md-nav__link--active">
+      Manage Dataframes, models and pipelines
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#managing-dataframes" title="Managing Dataframes" class="md-nav__link">
+    Managing Dataframes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-models-and-pipelines" title="Managing Models and Pipelines" class="md-nav__link">
+    Managing Models and Pipelines
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_api/" title="Session API Reference" class="md-nav__link">
+      Session API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Cebes Dataframe
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Cebes Dataframe
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_guide/" title="User guide" class="md-nav__link">
+      User guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_reference/" title="Dataframe API Reference" class="md-nav__link">
+      Dataframe API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_functions/" title="Functional API Reference" class="md-nav__link">
+      Functional API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Cebes Pipelines
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Cebes Pipelines
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_api/" title="Working with Cebes Pipelines" class="md-nav__link">
+      Working with Cebes Pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Pipeline repository
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Pipeline repository
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_repo/" title="Working with repositories in pycebes" class="md-nav__link">
+      Working with repositories in pycebes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_deploy/" title="Install pipeline repository" class="md-nav__link">
+      Install pipeline repository
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../serving/" title="Serving pipelines" class="md-nav__link">
+      Serving pipelines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#managing-dataframes" title="Managing Dataframes" class="md-nav__link">
+    Managing Dataframes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-models-and-pipelines" title="Managing Models and Pipelines" class="md-nav__link">
+    Managing Models and Pipelines
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="http://github.com/phvu/cebes-server/edit/master/docs/sources/session_df.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Manage Dataframes, models and pipelines</h1>
+                
+                <p>Cebes server keeps a list of all your dataframes, models and pipelines. Those are 3 types of first-class 
+citizens that you work with in Cebes.</p>
+<h2 id="managing-dataframes">Managing Dataframes<a class="headerlink" href="#managing-dataframes" title="Permanent link">&para;</a></h2>
+<p>In Cebes, each Dataframe is uniquely identified by an ID. All Dataframes are kept in memory until they 
+get evicted. The <a href="../installation/#cebes-server-configuration"><code>CEBES_CACHESPEC_DF_STORE</code></a> flag dictates 
+how and when Dataframes are evicted.</p>
+<p>During the exploration phase however, many temporary Dataframes might be created, while you are only 
+interested in a few of them. You might want to keep them around, or simply prevent them from eviction.
+To do that, you can give them a tag - an easy-to-remember string:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">cebes_df</span><span class="o">.</span><span class="n">id</span>
+    <span class="s1">&#39;8a5d3a28-c3c2-4b58-bd1a-008fa4a33d54&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">cebes_df</span><span class="p">,</span> <span class="s1">&#39;preprocessed_data&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>A tagged Dataframe is guaranteed to be checkpointed and can be reloaded later, across Session, using its tag:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;preprocessed_data&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">cebes_df</span><span class="o">.</span><span class="n">id</span>
+</pre></div>
+
+
+<p>You can get the list of all tagged Dataframes using <code>dataframe.list()</code>:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+    <span class="n">UUID</span>                                  <span class="n">Tag</span>                        <span class="n">Schema</span>                         <span class="n">Created</span>
+    <span class="o">------------------------------------</span>  <span class="o">-------------------------</span>  <span class="o">-----------------------------</span>  <span class="o">--------------------------</span>
+    <span class="mi">8</span><span class="n">a5d3a28</span><span class="o">-</span><span class="n">c3c2</span><span class="o">-</span><span class="mi">4</span><span class="n">b58</span><span class="o">-</span><span class="n">bd1a</span><span class="o">-</span><span class="mo">00</span><span class="mi">8</span><span class="n">fa4a33d54</span>  <span class="n">preprocessed_data</span><span class="p">:</span><span class="n">default</span>  <span class="n">number</span> <span class="n">integer</span><span class="p">,</span> <span class="n">string</span> <span class="n">string</span>  <span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">30</span> <span class="mo">02</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mf">00.533000</span>
+</pre></div>
+
+
+<p>Technically, a tag is a string with format <code>NAME:VERSION</code>. If you don't specify <code>VERSION</code>, the default version
+is <code>default</code>. This allows you to use the same tag name for multiple Dataframes with different versions.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">another_df</span><span class="p">,</span> <span class="s1">&#39;preprocessed_data:v1&#39;</span><span class="p">)</span>
+    <span class="n">Dataframe</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;102d8c93-138a-4c83-99f2-746a033891b9&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+    <span class="n">UUID</span>                                  <span class="n">Tag</span>                        <span class="n">Schema</span>                         <span class="n">Created</span>
+    <span class="o">------------------------------------</span>  <span class="o">-------------------------</span>  <span class="o">-----------------------------</span>  <span class="o">--------------------------</span>
+    <span class="mi">8</span><span class="n">a5d3a28</span><span class="o">-</span><span class="n">c3c2</span><span class="o">-</span><span class="mi">4</span><span class="n">b58</span><span class="o">-</span><span class="n">bd1a</span><span class="o">-</span><span class="mo">00</span><span class="mi">8</span><span class="n">fa4a33d54</span>  <span class="n">preprocessed_data</span><span class="p">:</span><span class="n">default</span>  <span class="n">number</span> <span class="n">integer</span><span class="p">,</span> <span class="n">string</span> <span class="n">string</span>  <span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">30</span> <span class="mo">02</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mf">00.533000</span>
+    <span class="mi">102</span><span class="n">d8c93</span><span class="o">-</span><span class="mi">138</span><span class="n">a</span><span class="o">-</span><span class="mi">4</span><span class="n">c83</span><span class="o">-</span><span class="mi">99</span><span class="n">f2</span><span class="o">-</span><span class="mi">746</span><span class="n">a033891b9</span>  <span class="n">preprocessed_data</span><span class="p">:</span><span class="n">v1</span>       <span class="n">number</span> <span class="n">integer</span><span class="p">,</span> <span class="n">string</span> <span class="n">string</span>  <span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">30</span> <span class="mo">02</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mf">05.747000</span>
+</pre></div>
+
+
+<p>Multiple tags for the same Dataframe is allowed, but tags are unique: the same tag cannot be used for different
+Dataframes. Trying to do so will raise an exception.</p>
+<p>If you want to reuse a tag, you need to <code>untag</code> it first:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">untag</span><span class="p">(</span><span class="s1">&#39;preprocessed_data&#39;</span><span class="p">)</span>
+    <span class="n">Dataframe</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;8a5d3a28-c3c2-4b58-bd1a-008fa4a33d54&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+    <span class="n">UUID</span>                                  <span class="n">Tag</span>                   <span class="n">Schema</span>                         <span class="n">Created</span>
+    <span class="o">------------------------------------</span>  <span class="o">--------------------</span>  <span class="o">-----------------------------</span>  <span class="o">--------------------------</span>
+    <span class="mi">102</span><span class="n">d8c93</span><span class="o">-</span><span class="mi">138</span><span class="n">a</span><span class="o">-</span><span class="mi">4</span><span class="n">c83</span><span class="o">-</span><span class="mi">99</span><span class="n">f2</span><span class="o">-</span><span class="mi">746</span><span class="n">a033891b9</span>  <span class="n">preprocessed_data</span><span class="p">:</span><span class="n">v1</span>  <span class="n">number</span> <span class="n">integer</span><span class="p">,</span> <span class="n">string</span> <span class="n">string</span>  <span class="mi">2017</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">30</span> <span class="mo">02</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mf">05.747000</span>
+</pre></div>
+
+
+<p>Note how Cebes only untag <code>preprocessed_data:default</code>, while keeping <code>preporcessed_data:v1</code> unchanged. 
+This is because we did <code>session.dataframe.untag('preprocessed_data')</code>, and Cebes looks for the full 
+tag <code>preprocessed_data:default</code> to delete. </p>
+<p>To delete <code>preprocessed_data:v1</code>, we need to be specific:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">untag</span><span class="p">(</span><span class="s1">&#39;preprocessed_data:v1&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition hint">
+<p class="admonition-title">Summary</p>
+<ul>
+<li><em>Tag</em> is a string given to a Dataframe, so that users can retrieve them later. </li>
+<li>Tagged Dataframes will be persisted in Cebes.</li>
+<li>Tag has format <code>NAME:VERSION</code>. When unspecified, the default VERSION is <code>default</code>.</li>
+</ul>
+</div>
+<hr />
+<h2 id="managing-models-and-pipelines">Managing Models and Pipelines<a class="headerlink" href="#managing-models-and-pipelines" title="Permanent link">&para;</a></h2>
+<p>All <a href="../pipelines_concepts/">pipelines and models</a> share the same management principles as Dataframes.</p>
+<ul>
+<li>
+<p>For pipelines:</p>
+<ul>
+<li>use <code>Session.pipeline.list</code>, <code>Session.pipeline.get</code>, <code>Session.pipeline.tag</code> and <code>Session.pipeline.untag</code></li>
+<li>the <a href="../installation/#cebes-server-configuration"><code>CEBES_CACHESPEC_PIPELINE_STORE</code></a> flag dictates how
+and when in-memory pipelines are evicted.</li>
+</ul>
+</li>
+<li>
+<p>For models:</p>
+<ul>
+<li>use <code>Session.model.list</code>, <code>Session.model.get</code>, <code>Session.model.tag</code> and <code>Session.model.untag</code></li>
+<li>the <a href="../installation/#cebes-server-configuration"><code>CEBES_CACHESPEC_MODEL_STORE</code></a> flag dictates how
+and when in-memory models are evicted.</li>
+</ul>
+</li>
+</ul>
+<p>Since they can be tagged, Cebes can handle pipelines and models as they evolve with your business logic.
+Just keep the same tag name but give them a different version, all your pipelines and models can be managed 
+in a coherent way.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../session_load_data/" title="Load data into Cebes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Load data into Cebes
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../session_api/" title="Session API Reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Session API Reference
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/phvu/cebes-server" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/cebes_io" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://gitter.im/cebes-io/Lobby" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.9fb73e57.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

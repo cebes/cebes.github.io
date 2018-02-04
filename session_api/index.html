@@ -1,0 +1,1266 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Cebes - the integrated framework for Data Science">
+      
+      
+        <link rel="canonical" href="http://cebes.io/session_api/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../imgs/cebes.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.0">
+    
+    
+      
+        <title>Session API Reference - Cebes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.aa3de92b.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#session" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://cebes.io/" title="Cebes" class="md-header-nav__button md-logo">
+          
+            <img src="../imgs/cebes_inverse.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Cebes
+              </span>
+              <span class="md-header-nav__topic">
+                Session API Reference
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../imgs/cebes_inverse.png" width="24" height="24">
+      
+    </span>
+    Cebes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="http://github.com/phvu/cebes-server/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../roadmap/" title="Roadmap" class="md-nav__link">
+      Roadmap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Cebes Session
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Cebes Session
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_load_data/" title="Load data into Cebes" class="md-nav__link">
+      Load data into Cebes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../session_df/" title="Manage Dataframes, models and pipelines" class="md-nav__link">
+      Manage Dataframes, models and pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Session API Reference
+      </label>
+    
+    <a href="./" title="Session API Reference" class="md-nav__link md-nav__link--active">
+      Session API Reference
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#load_test_datasets" title="load_test_datasets" class="md-nav__link">
+    load_test_datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_csv" title="read_csv" class="md-nav__link">
+    read_csv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stop_repository_container" title="stop_repository_container" class="md-nav__link">
+    stop_repository_container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close" title="close" class="md-nav__link">
+    close
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client" title="client" class="md-nav__link">
+    client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" title="model" class="md-nav__link">
+    model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from_pandas" title="from_pandas" class="md-nav__link">
+    from_pandas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_jdbc" title="read_jdbc" class="md-nav__link">
+    read_jdbc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_local" title="read_local" class="md-nav__link">
+    read_local
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start_repository_container" title="start_repository_container" class="md-nav__link">
+    start_repository_container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#as_default" title="as_default" class="md-nav__link">
+    as_default
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_hive" title="read_hive" class="md-nav__link">
+    read_hive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_hdfs" title="read_hdfs" class="md-nav__link">
+    read_hdfs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" title="pipeline" class="md-nav__link">
+    pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataframe" title="dataframe" class="md-nav__link">
+    dataframe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_s3" title="read_s3" class="md-nav__link">
+    read_s3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_json" title="read_json" class="md-nav__link">
+    read_json
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Cebes Dataframe
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Cebes Dataframe
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_guide/" title="User guide" class="md-nav__link">
+      User guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_reference/" title="Dataframe API Reference" class="md-nav__link">
+      Dataframe API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataframe_functions/" title="Functional API Reference" class="md-nav__link">
+      Functional API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Cebes Pipelines
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Cebes Pipelines
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_concepts/" title="Key concepts" class="md-nav__link">
+      Key concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_api/" title="Working with Cebes Pipelines" class="md-nav__link">
+      Working with Cebes Pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Pipeline repository
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Pipeline repository
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_repo/" title="Working with repositories in pycebes" class="md-nav__link">
+      Working with repositories in pycebes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines_deploy/" title="Install pipeline repository" class="md-nav__link">
+      Install pipeline repository
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../serving/" title="Serving pipelines" class="md-nav__link">
+      Serving pipelines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#load_test_datasets" title="load_test_datasets" class="md-nav__link">
+    load_test_datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_csv" title="read_csv" class="md-nav__link">
+    read_csv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stop_repository_container" title="stop_repository_container" class="md-nav__link">
+    stop_repository_container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close" title="close" class="md-nav__link">
+    close
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client" title="client" class="md-nav__link">
+    client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" title="model" class="md-nav__link">
+    model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from_pandas" title="from_pandas" class="md-nav__link">
+    from_pandas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_jdbc" title="read_jdbc" class="md-nav__link">
+    read_jdbc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_local" title="read_local" class="md-nav__link">
+    read_local
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start_repository_container" title="start_repository_container" class="md-nav__link">
+    start_repository_container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#as_default" title="as_default" class="md-nav__link">
+    as_default
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_hive" title="read_hive" class="md-nav__link">
+    read_hive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_hdfs" title="read_hdfs" class="md-nav__link">
+    read_hdfs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline" title="pipeline" class="md-nav__link">
+    pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataframe" title="dataframe" class="md-nav__link">
+    dataframe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_s3" title="read_s3" class="md-nav__link">
+    read_s3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read_json" title="read_json" class="md-nav__link">
+    read_json
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="http://github.com/phvu/cebes-server/edit/master/docs/sources/session_api.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="session"><h1 id="pycebes.core.session.Session">Session</h1><a class="headerlink" href="#session" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">21000</span><span class="p">,</span> <span class="n">user_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">interactive</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Construct a new <code>Session</code> to the server at the given host and port, with the given user name and password.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>host (str)</strong>: Hostname of the Cebes server.
+    If <code>None</code> (default), cebes will try to launch a new
+    docker container with a suitable version of Cebes server in it. Note that it requires you have
+    a working docker daemon on your machine.
+    Otherwise a string containing the host name or IP address of the Cebes server you want to connect to.</li>
+<li><strong>port (int)</strong>: The port on which Cebes server is listening. Ignored when <code>host=None</code>.</li>
+<li><strong>user_name (str)</strong>: Username to log in to Cebes server</li>
+<li><strong>password (str)</strong>: Password of the user to log in to Cebes server</li>
+<li><strong>interactive (bool)</strong>: whether this is an interactive session,
+    in which case some diagnosis logs will be printed to stdout.</li>
+</ul>
+<h2 id="load_test_datasets"><h2 id="pycebes.core.session.Session.load_test_datasets">load_test_datasets</h2><a class="headerlink" href="#load_test_datasets" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">load_test_datasets</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Load test datasets that come by default in Cebes server.</p>
+<p><strong>Returns</strong></p>
+<p><code>dict: a dict of datasets, currently has only one element</code>:
+<code>`{'cylinder_bands'</code>: Dataframe}`</p>
+<h2 id="read_csv"><h2 id="pycebes.core.session.Session.read_csv">read_csv</h2><a class="headerlink" href="#read_csv" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Upload a local CSV file to the server, and create a Dataframe out of it.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>path (str)</strong>: path to the local CSV file</li>
+<li><strong>options (CsvReadOptions)</strong>: Additional options that dictate how the files are going to be read.</li>
+<li><strong>Must be either None or a :class</strong>:<code>CsvReadOptions</code> object</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: the Cebes Dataframe object created from the data source</p>
+<h2 id="stop_repository_container"><h2 id="pycebes.core.session.Session.stop_repository_container">stop_repository_container</h2><a class="headerlink" href="#stop_repository_container" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">stop_repository_container</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Stop the local pipeline repository if it is running.
+        Do nothing if there is no local repository associated with this Session.</p>
+<h2 id="close"><h2 id="pycebes.core.session.Session.close">close</h2><a class="headerlink" href="#close" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Close this session. Will stop the Cebes container if this session was
+created against a local Cebes container. Otherwise it is a no-op.</p>
+<h2 id="client"><h2 id="pycebes.core.session.Session.client">client</h2><a class="headerlink" href="#client" title="Permanent link">&para;</a></h2>
+<p>Return the client which can be used to send requests to server</p>
+<p><strong>Returns</strong></p>
+<p><code>Client</code>: the client object</p>
+<h2 id="model"><h2 id="pycebes.core.session.Session.model">model</h2><a class="headerlink" href="#model" title="Permanent link">&para;</a></h2>
+<p>Return a helper for working with tagged and cached <code>Model</code></p>
+<p><strong>Returns</strong></p>
+<p><code>_TagHelper</code>:</p>
+<h2 id="from_pandas"><h2 id="pycebes.core.session.Session.from_pandas">from_pandas</h2><a class="headerlink" href="#from_pandas" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Upload the given <code>pandas</code> DataFrame to the server and create a Cebes Dataframe out of it.
+Types are preserved on a best-efforts basis.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>df (pd.DataFrame)</strong>: a pandas DataFrame object</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: the Cebes Dataframe created from the data source</p>
+<h2 id="read_jdbc"><h2 id="pycebes.core.session.Session.read_jdbc">read_jdbc</h2><a class="headerlink" href="#read_jdbc" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">read_jdbc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">user_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Read a Dataframe from a JDBC table</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>url (str)</strong>: URL to the JDBC server</li>
+<li><strong>table_name (str)</strong>: name of the table</li>
+<li><strong>user_name (str)</strong>: JDBC user name</li>
+<li><strong>password (str)</strong>: JDBC password</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: the Cebes Dataframe object created from the data source</p>
+<h2 id="read_local"><h2 id="pycebes.core.session.Session.read_local">read_local</h2><a class="headerlink" href="#read_local" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">read_local</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Upload a file from the local machine to the server, and create a :class:<code>Dataframe</code> out of it.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>path (str)</strong>: path to the local file</li>
+<li><strong>fmt (str)</strong>: format of the file, can be <code>csv</code>, <code>json</code>, <code>orc</code>, <code>parquet</code>, <code>text</code></li>
+<li><strong>options</strong>: Additional options that dictate how the files are going to be read.</li>
+<li>
+<p><strong>If specified, this can be</strong>:</p>
+<ul>
+<li><code>CsvReadOptions</code> when <code>fmt='csv'</code>,</li>
+<li><code>JsonReadOptions</code> when <code>fmt='json'</code>, or</li>
+<li><code>ParquetReadOptions</code> when <code>fmt='parquet'</code></li>
+</ul>
+</li>
+</ul>
+<p>Other formats do not need additional options</p>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: the Cebes Dataframe object created from the data source</p>
+<h2 id="start_repository_container"><h2 id="pycebes.core.session.Session.start_repository_container">start_repository_container</h2><a class="headerlink" href="#start_repository_container" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">start_repository_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host_port</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Start a local docker container running Cebes pipeline repository,
+with the repository listening on the host at the given port.</p>
+<p>If <code>host_port</code> is None, a new port will be automatically allocated
+by Docker. Therefore, to maintain consistency with your pipeline tags,
+it is recommended to specify a high port, e.g. 35000 or 36000.</p>
+<p>If one repository was started for this Session already, it will be returned.</p>
+<h2 id="as_default"><h2 id="pycebes.core.session.Session.as_default">as_default</h2><a class="headerlink" href="#as_default" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">as_default</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Returns a context manager that makes this object the default session.</p>
+<p>Use with the <code>with</code> keyword to specify that all remote calls to server
+should be executed in this session.</p>
+<div class="codehilite"><pre><span></span>    <span class="n">sess</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">sess</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+        <span class="o">....</span>
+</pre></div>
+
+
+<p>To get the current default session, use <code>get_default_session</code>.</p>
+<blockquote>
+<p>The default session is a property of the current thread. If you
+create a new thread, and wish to use the default session in that
+thread, you must explicitly add a <code>with sess.as_default():</code> in that
+thread's function.</p>
+</blockquote>
+<p><strong>Returns</strong></p>
+<p>A context manager using this session as the default session.</p>
+<h2 id="read_hive"><h2 id="pycebes.core.session.Session.read_hive">read_hive</h2><a class="headerlink" href="#read_hive" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">read_hive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Read a Dataframe from Hive table of the given name</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>table_name (str)</strong>: name of the Hive table to read data from</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: The Cebes Dataframe object created from Hive table</p>
+<h2 id="read_hdfs"><h2 id="pycebes.core.session.Session.read_hdfs">read_hdfs</h2><a class="headerlink" href="#read_hdfs" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">read_hdfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Load a dataset from HDFS.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>path (str)</strong>: path to the files on HDFS, e.g. <code>/data/dataset1</code></li>
+<li>__server (str): Host name and port, e.g. <code>hdfs://server__:9000</code></li>
+<li><strong>fmt (str)</strong>: format of the files, can be <code>csv</code>, <code>json</code>, <code>orc</code>, <code>parquet</code>, <code>text</code></li>
+<li><strong>options</strong>: Additional options that dictate how the files are going to be read.</li>
+<li>
+<p><strong>If specified, this can be</strong>:</p>
+<ul>
+<li><code>CsvReadOptions</code> when <code>fmt='csv'</code>,</li>
+<li><code>JsonReadOptions</code> when <code>fmt='json'</code>, or</li>
+<li><code>ParquetReadOptions</code> when <code>fmt='parquet'</code></li>
+</ul>
+</li>
+</ul>
+<p>Other formats do not need additional options</p>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: the Cebes Dataframe object created from the data source</p>
+<h2 id="pipeline"><h2 id="pycebes.core.session.Session.pipeline">pipeline</h2><a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h2>
+<p>Return a helper for working with tagged and cached <code>Pipeline</code></p>
+<p><strong>Returns</strong></p>
+<p><code>_PipelineHelper</code>:</p>
+<h2 id="dataframe"><h2 id="pycebes.core.session.Session.dataframe">dataframe</h2><a class="headerlink" href="#dataframe" title="Permanent link">&para;</a></h2>
+<p>Return a helper for working with tagged and cached <code>Dataframe</code></p>
+<p><strong>Returns</strong></p>
+<p><code>_TagHelper</code>:</p>
+<h2 id="read_s3"><h2 id="pycebes.core.session.Session.read_s3">read_s3</h2><a class="headerlink" href="#read_s3" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">read_s3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Read a Dataframe from files stored in Amazon S3.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>bucket (str)</strong>: name of the S3 bucket</li>
+<li><strong>key (str)</strong>: path to the file(s) on S3</li>
+<li><strong>access_key (str)</strong>: Amazon S3 access key</li>
+<li><strong>secret_key (str)</strong>: Amazon S3 secret key</li>
+<li><strong>region (str)</strong>: S3 region, if needed.</li>
+<li><strong>fmt (str)</strong>: format of the files, can be <code>csv</code>, <code>json</code>, <code>orc</code>, <code>parquet</code>, <code>text</code></li>
+<li><strong>options</strong>: Additional options that dictate how the files are going to be read.</li>
+<li>
+<p><strong>If specified, this can be</strong>:</p>
+<ul>
+<li><code>CsvReadOptions</code> when <code>fmt='csv'</code>,</li>
+<li><code>JsonReadOptions</code> when <code>fmt='json'</code>, or</li>
+<li><code>ParquetReadOptions</code> when <code>fmt='parquet'</code></li>
+</ul>
+</li>
+</ul>
+<p>Other formats do not need additional options</p>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: the Cebes Dataframe object created from the data source</p>
+<h2 id="read_json"><h2 id="pycebes.core.session.Session.read_json">read_json</h2><a class="headerlink" href="#read_json" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Session</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Upload a local JSON file to the server, and create a Dataframe out of it.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>path (str)</strong>: path to the local JSON file</li>
+<li><strong>options (JsonReadOptions)</strong>: Additional options that dictate how the files are going to be read.</li>
+<li><strong>Must be either None or a :class</strong>:<code>JsonReadOptions</code> object</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p><code>Dataframe</code>: the Cebes Dataframe object created from the data source</p>
+<h1 id="csvreadoptions"><h1 id="pycebes.core.session.CsvReadOptions">CsvReadOptions</h1><a class="headerlink" href="#csvreadoptions" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">CsvReadOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">infer_schema</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">ignore_leading_white_space</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">null_value</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">nan_value</span><span class="o">=</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">positive_inf</span><span class="o">=</span><span class="s1">&#39;Inf&#39;</span><span class="p">,</span> <span class="n">negative_inf</span><span class="o">=</span><span class="s1">&#39;-Inf&#39;</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span> <span class="n">timestamp_format</span><span class="o">=</span><span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ&quot;</span><span class="p">,</span> <span class="n">max_columns</span><span class="o">=</span><span class="mi">20480</span><span class="p">,</span> <span class="n">max_chars_per_column</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_malformed_log_per_partition</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;PERMISSIVE&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Options for reading CSV files.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>sep</strong>: sets the single character as a separator for each field and value.</li>
+<li><strong>encoding</strong>: decodes the CSV files by the given encoding type</li>
+<li><strong>quote</strong>: sets the single character used for escaping quoted values where
+    the separator can be part of the value. If you would like to turn off quotations, you need to
+    set not <code>null</code> but an empty string.</li>
+<li><strong>escape</strong>: sets the single character used for escaping quotes inside an already quoted value.</li>
+<li><strong>comment</strong>: sets the single character used for skipping lines beginning with this character.
+    By default, it is disabled</li>
+<li><strong>header</strong>: uses the first line as names of columns.</li>
+<li><strong>infer_schema</strong>: infers the input schema automatically from data. It requires one extra pass over the data.</li>
+<li><strong>ignore_leading_white_space</strong>: defines whether or not leading whitespaces
+    from values being read should be skipped.</li>
+<li><strong>null_value</strong>: sets the string representation of a null value.
+    This applies to all supported types including the string type.</li>
+<li><strong>nan_value</strong>: sets the string representation of a "non-number" value</li>
+<li><strong>positive_inf</strong>: sets the string representation of a positive infinity value</li>
+<li><strong>negative_inf</strong>: sets the string representation of a negative infinity value</li>
+<li><strong>date_format</strong>: sets the string that indicates a date format.
+    Custom date formats follow the formats at <code>java.text.SimpleDateFormat</code>.
+    This applies to date type.</li>
+<li><strong>timestamp_format</strong>: sets the string that indicates a timestamp format.
+    Custom date formats follow the formats at <code>java.text.SimpleDateFormat</code>. This applies to timestamp type.</li>
+<li><strong>max_columns</strong>: defines a hard limit of how many columns a record can have</li>
+<li><strong>max_chars_per_column</strong>: defines the maximum number of characters allowed
+    for any given value being read. By default, it is -1 meaning unlimited length</li>
+<li><strong>max_malformed_log_per_partition</strong>: sets the maximum number of malformed rows
+    will be logged for each partition. Malformed records beyond this number will be ignored.</li>
+<li><strong>mode</strong>: allows a mode for dealing with corrupt records during parsing.<ul>
+<li><code>ReadOptions.PERMISSIVE</code> - sets other fields to <code>null</code> when it meets a corrupted record.
+        When a schema is set by user, it sets <code>null</code> for extra fields</li>
+<li><code>ReadOptions.DROPMALFORMED</code> - ignores the whole corrupted records</li>
+<li><code>ReadOptions.FAILFAST</code> - throws an exception when it meets corrupted records</li>
+</ul>
+</li>
+</ul>
+<h1 id="jsonreadoptions"><h1 id="pycebes.core.session.JsonReadOptions">JsonReadOptions</h1><a class="headerlink" href="#jsonreadoptions" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">JsonReadOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primitives_as_string</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">prefers_decimal</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allow_comments</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allow_unquoted_field_names</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allow_single_quotes</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">allow_numeric_leading_zeros</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allow_backslash_escaping_any_character</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;PERMISSIVE&#39;</span><span class="p">,</span> <span class="n">column_name_of_corrupt_record</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span> <span class="n">timestamp_format</span><span class="o">=</span><span class="s2">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZZ&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Options for reading Json files</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>primitives_as_string</strong>: infers all primitive values as a string type</li>
+<li><strong>prefers_decimal</strong>: infers all floating-point values as a decimal type.
+    If the values do not fit in decimal, then it infers them as doubles</li>
+<li><strong>allow_comments</strong>: ignores Java/C++ style comment in JSON records</li>
+<li><strong>allow_unquoted_field_names</strong>: allows unquoted JSON field names</li>
+<li><strong>allow_single_quotes</strong>: allows single quotes in addition to double quotes</li>
+<li><strong>allow_numeric_leading_zeros</strong>: allows leading zeros in numbers (e.g. 00012)</li>
+<li><strong>allow_backslash_escaping_any_character</strong>: allows accepting quoting of all
+    character using backslash quoting mechanism</li>
+<li>
+<p><strong>mode</strong>: allows a mode for dealing with corrupt records during parsing.</p>
+<ul>
+<li><code>ReadOptions.PERMISSIVE</code> - sets other fields to <code>null</code> when it meets a corrupted record.
+        When a schema is set by user, it sets <code>null</code> for extra fields</li>
+<li><code>ReadOptions.DROPMALFORMED</code> - ignores the whole corrupted records</li>
+<li><code>ReadOptions.FAILFAST</code> - throws an exception when it meets corrupted records</li>
+</ul>
+</li>
+<li>
+<p><strong>column_name_of_corrupt_record</strong>: allows renaming the new field having malformed string
+    created by <code>ReadOptions.PERMISSIVE</code> mode. This overrides <code>spark.sql.columnNameOfCorruptRecord</code>.</p>
+</li>
+<li><strong>date_format</strong>: sets the string that indicates a date format.
+    Custom date formats follow the formats at <code>java.text.SimpleDateFormat</code>. This applies to date type</li>
+<li><strong>timestamp_format</strong>: sets the string that indicates a timestamp format.
+    Custom date formats follow the formats at <code>java.text.SimpleDateFormat</code>. This applies to timestamp type</li>
+</ul>
+<h1 id="parquetreadoptions"><h1 id="pycebes.core.session.ParquetReadOptions">ParquetReadOptions</h1><a class="headerlink" href="#parquetreadoptions" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">ParquetReadOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">merge_schema</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Options for reading Parquet files</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>merge_schema (bool)</strong>: sets whether we should merge schemas collected from all Parquet part-files.</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../session_df/" title="Manage Dataframes, models and pipelines" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Manage Dataframes, models and pipelines
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../dataframe_concepts/" title="Key concepts" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Key concepts
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/phvu/cebes-server" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/cebes_io" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://gitter.im/cebes-io/Lobby" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.9fb73e57.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
