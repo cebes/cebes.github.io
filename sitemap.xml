@@ -4,48 +4,20 @@
     
         
     <url>
-     <loc>http://cebes.io//</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io//installation/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//installation/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io//roadmap/</loc>
-     <lastmod>2018-02-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>http://cebes.io//session/</loc>
-     <lastmod>2018-02-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://cebes.io//session_load_data/</loc>
-     <lastmod>2018-02-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://cebes.io//session_df/</loc>
-     <lastmod>2018-02-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://cebes.io//session_api/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//roadmap/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -54,26 +26,26 @@
     
         
     <url>
-     <loc>http://cebes.io//dataframe_concepts/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//session/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io//dataframe_guide/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//session_load_data/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io//dataframe_reference/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//session_df/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io//dataframe_functions/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//session_api/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -82,26 +54,54 @@
     
         
     <url>
-     <loc>http://cebes.io//pipelines_concepts/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//dataframe_concepts/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io//pipelines_api/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//dataframe_guide/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io/</loc>
+     <loc>http://www.cebes.io//dataframe_reference/</loc>
+     <lastmod>2018-02-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.cebes.io//dataframe_functions/</loc>
+     <lastmod>2018-02-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://www.cebes.io//pipelines_concepts/</loc>
+     <lastmod>2018-02-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.cebes.io//pipelines_api/</loc>
+     <lastmod>2018-02-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://www.cebes.io/</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://cebes.io//serving/</loc>
-     <lastmod>2018-02-04</lastmod>
+     <loc>http://www.cebes.io//serving/</loc>
+     <lastmod>2018-02-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
