@@ -12,7 +12,7 @@ theme:
 
 docs_dir: sources
 repo_url: http://github.com/cebes/cebes-server
-site_url: http://cebes.io/
+site_url: http://www.cebes.io/
 
 markdown_extensions:
   - admonition
@@ -29,6 +29,10 @@ extra:
       link: 'https://twitter.com/cebes_io'
     - type: 'globe'
       link: 'https://gitter.im/cebes-io/Lobby'
+
+google_analytics:
+  - 'UA-86687522-3'
+  - 'auto'
 
 edit_uri: ''
 site_description: 'Cebes - the integrated framework for Data Science'

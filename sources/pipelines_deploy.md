@@ -14,7 +14,7 @@ If you have a CI/CD system, deploying the docker image should be straightforward
 ## Deploy manually
 
 1. Download `cebes-pipeline-repository-assembly-VERSION.jar` from 
-[github release page](https://github.com/phvu/cebes-server/releases)
+[github release page](https://github.com/cebes/cebes-server/releases)
 2. Specify all environment variables as in the table below.
 3. Start the repository:
 

@@ -95,7 +95,7 @@ for more information.
     
     Assume you have a MySQL/MariaDB database running at `DATABASE_HOST:DATABASE_PORT`. You can
     configure this database for Cebes using the 
-    [setup-db.sh](https://github.com/phvu/cebes-server/blob/master/cebes-http-server/script/setup-db.sh) script.
+    [setup-db.sh](https://github.com/cebes/cebes-server/blob/master/cebes-http-server/script/setup-db.sh) script.
     Just run it in a terminal:
     
         $ ./setup-db.sh
@@ -110,10 +110,10 @@ for more information.
 
     On the Spark master node:
     
-        $ CEBES_VERSION="0.9.0"
-        $ wget https://github.com/phvu/cebes-server/releases/download/v${CEBES_VERSION}/cebes-http-server-assembly-${CEBES_VERSION}.jar
+        $ CEBES_VERSION="0.10.0"
+        $ wget https://github.com/cebes/cebes-server/releases/download/v${CEBES_VERSION}/cebes-http-server-assembly-${CEBES_VERSION}.jar
         
-    The latest releases can be found on [github](https://github.com/phvu/cebes-server/releases).
+    The latest releases can be found on [github](https://github.com/cebes/cebes-server/releases).
 
 3. Submit Cebes server as a Spark application:
 
